@@ -6,6 +6,9 @@ export default defineConfig({
     description:
         "一个用Rust编写的高性能Minecraft服务器核心",
     lang: "zh-CN",
+    sitemap: {
+        hostname: 'https://pumpkin.yizhan.wiki'
+    },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         search: {
