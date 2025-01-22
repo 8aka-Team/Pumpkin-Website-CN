@@ -1,17 +1,17 @@
-# Proxy
-Many servers use proxies to manage connections and distribute players across servers. Pumpkin supports the following proxy protocols:
+# 代理
+许多服务器使用代理来管理连接并在服务器之间分配玩家。Pumpkin 支持以下代理协议：
 
 - [Velocity](https://papermc.io/software/velocity)
 - [BungeeCord](https://www.spigotmc.org/wiki/bungeecord-installation/)
 
 > [!TIP]
-> Velocity is recommended for most server networks. Velocity is modern and more performant compared to BungeeCord.
+> 对于大多数服务器网络，推荐使用 Velocity。Velocity 更现代化且性能优于 BungeeCord。
 
-## Configuring Proxy
+## 配置代理
 
-#### `enabled`: Boolean
+#### `enabled`: 布尔值
 
-Enables support for proxies.
+启用代理支持。
 
 :::code-group
 ```toml [features.toml]{2}
@@ -22,9 +22,9 @@ enabled = true
 
 ### Velocity
 
-#### `enabled`: Boolean
+#### `enabled`: 布尔值
 
-Whether Velocity support is enabled or not.
+是否启用 Velocity 支持。
 
 :::code-group
 ```toml [features.toml]{2}
@@ -33,22 +33,22 @@ enabled = true
 ```
 :::
 
-#### `secret`: String 
+#### `secret`: 字符串
 
-The secret as configured in Velocity. 
+在 Velocity 中配置的密钥。
 
 :::code-group
 ```toml [features.toml]{3}
 [proxy.velocity]
 enabled = true
-secret = "[proxy secret here]"
+secret = "[在此处填写代理密钥]"
 ```
 :::
 
 ### BungeeCord
 
-#### `enabled`: Boolean
-Whether BungeeCord support is enabled or not.
+#### `enabled`: 布尔值
+是否启用 BungeeCord 支持。
 
 :::code-group
 ```toml [features.toml]{2}
@@ -58,10 +58,10 @@ enabled = true
 :::
 
 > [!CAUTION]
-> Ensure that the server's firewall is correctly configured, as BungeeCord can't verify if player info is from your proxy or an imposter.
+> 确保服务器的防火墙配置正确，因为 BungeeCord 无法验证玩家信息是来自您的代理还是冒充者。
 
-## Default Config
-By default, proxy support is disabled. Here is the default config:
+## 默认配置
+默认情况下，代理支持是禁用的。以下是默认配置：
 
 :::code-group
 ```toml [features.toml]
@@ -76,3 +76,4 @@ secret = ""
 enabled = false
 ```
 :::
+

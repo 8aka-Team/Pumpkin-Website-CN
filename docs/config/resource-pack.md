@@ -1,13 +1,13 @@
-# Resource Pack
-Servers can send resource packs to the client in order to change the appearance of the game on the client. Pumpkin allows you to fully configure the resource pack.
+# 资源包
+服务器可以向客户端发送资源包，以更改客户端上游戏的外观。Pumpkin 允许您完全配置资源包。
 
 > [!TIP]
-> Minify your resource pack using [PackSquash](https://packsquash.aylas.org/)! This can help clients download the resource pack faster.
+> 使用 [PackSquash](https://packsquash.aylas.org/) 压缩您的资源包！这可以帮助客户端更快地下载资源包。
 
-## Configuring Resource Pack
+## 配置资源包
 
-#### `enabled`: Boolean
-Whether a resource pack is enabled or not.
+#### `enabled`: 布尔值
+是否启用资源包。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -16,11 +16,11 @@ enabled = true
 ```
 :::
 
-#### `resource_pack_url`: String
-The direct download URL to the resource pack. 
+#### `resource_pack_url`: 字符串
+资源包的直接下载 URL。
 
 > [!TIP]
-> You can host the resource pack for free at [MCPacks](https://mc-packs.net/).
+> 您可以在 [MCPacks](https://mc-packs.net/) 上免费托管资源包。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -30,16 +30,16 @@ resource_pack_url = "[your download URL here]"
 ```
 :::
 
-#### `resource_pack_sha1`: String
-The hash of the resource pack, using the SHA1 algorithm.
+#### `resource_pack_sha1`: 字符串
+资源包的哈希值，使用 SHA1 算法。
 
 > [!IMPORTANT]
-> Although not required to specify, you should specify this field because the client will otherwise redownload the resource pack every time they join the server, even if there are no changes to the resource pack.
+> 虽然不需要指定此字段，但您应该指定此字段，因为否则客户端每次加入服务器时都会重新下载资源包，即使资源包没有更改。
 
 > [!WARNING]
-> Make sure to update this field if the resource pack is modified.
+> 如果资源包被修改，请确保更新此字段。
 
-::: details How do I get the SHA1 hash of my resource pack?
+::: details 如何获取资源包的 SHA1 哈希值？
 ::: code-group
 ```powershell [Windows (PowerShell)]
 Get-FileHash [file] SHA1
@@ -60,8 +60,8 @@ resource_pack_sha1 = "[your hash here]"
 ```
 :::
 
-#### `prompt_message`: String
-The message to show to the user when prompted to download the resource pack.
+#### `prompt_message`: 字符串
+提示用户下载资源包时显示的消息。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -71,8 +71,8 @@ prompt_message = "[your message here]"
 ```
 :::
 
-#### `force`: Boolean
-Whether to force the client to download the resource pack or not. If the client declines the download, they will be kicked from the server.
+#### `force`: 布尔值
+是否强制客户端下载资源包。如果客户端拒绝下载，他们将被踢出服务器。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -82,8 +82,8 @@ force = false
 ```
 :::
 
-## Default Config
-By default, resource pack is disabled.
+## 默认配置
+默认情况下，资源包是禁用的。
 
 :::code-group
 ```toml [features.toml]

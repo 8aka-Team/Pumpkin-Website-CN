@@ -1,9 +1,9 @@
-### Common Issues
+### 常见问题
 
-1.  ### Failed to verify username
+1.  ### 用户名验证失败
 
-    **Issue:** Some players reported having issues logging into the Server, including a "Failed to verify username" error.
+    **问题:** 一些玩家报告在登录服务器时遇到问题，包括“用户名验证失败”错误。
 
-    **Cause:** This has to do with Authentication, Usually with the prevent proxy connections setting.
+    **原因:** 这与认证有关，通常与防止代理连接的设置有关。
 
-    **Fix:** Disable `prevent_proxy_connections` in `features.toml`
+    **解决方法:** 在 `features.toml` 中禁用 `prevent_proxy_connections`

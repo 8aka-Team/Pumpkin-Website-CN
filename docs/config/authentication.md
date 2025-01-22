@@ -1,160 +1,198 @@
-# Authentication
+# 认证
 
-Servers authenthicate with Mojang's session servers in order to ensure the client is playing on a legitimate, paid account. Pumpkin allows you to fully configure authentication.
+服务器与Mojang的会话服务器进行认证，以确保客户端使用的是合法且已付费的账户。Pumpkin允许您完全配置认证。
 
-## Configuring Authentication
+## 配置认证
 
-> [!WARNING]
-> Most servers should not change the default authenthication configuration. Doing so may have unintended consequnces. **Only change these settings if you know what you are doing!**
+> [!警告]
+> 大多数服务器不应更改默认的认证配置。这样做可能会产生意想不到的后果。**只有在您知道自己在做什么的情况下才更改这些设置！**
 
-#### `enabled`: Boolean
+#### `enabled`: 布尔值
 
-Whether authenthication is enabled or not.
+是否启用认证。
 
 :::code-group
+
 ```toml [features.toml] {2}
 [authentication]
 enabled = false
 ```
+
 :::
 
-#### `prevent_proxy_connections`: Boolean
+#### `prevent_proxy_connections`: 布尔值
 
-Whether to block proxy connections or not.
+是否阻止代理连接。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication]
 enabled = true
 prevent_proxy_connections = true
 ```
+
 :::
 
-#### `auth_url`: String (optional)
-The URL to authenthicate with. Uses Mojang's session servers to authenthicate if not specified. 
+#### `auth_url`: 字符串（可选）
 
-##### Placeholders
-| Placeholder     | Description        |
-| --------------- | ------------------ |
-| `{username}`    | Player username    |
-| `{server_hash}` | Hash of the server |
+用于认证的URL。如果未指定，则使用Mojang的会话服务器进行认证。
+
+##### 占位符
+
+| 占位符             | 描述      |
+|-----------------|---------|
+| `{username}`    | 玩家用户名   |
+| `{server_hash}` | 服务器的哈希值 |
 
 :::code-group
+
 ```toml [features.toml] {2}
 [authentication]
-auth_url = "[custom auth server here]"
+auth_url = "[自定义认证服务器地址]"
 ```
+
 :::
 
-#### `prevent_proxy_connection_auth_url`: String (optional)
-The URL to authenthicate with if `prevent_proxy_connections` is enabled. Uses Mojang's session servers to authenthicate if not specified.
+#### `prevent_proxy_connection_auth_url`: 字符串（可选）
 
-##### Placeholders
-| Placeholder     | Description              |
-| --------------- | ------------------------ |
-| `{username}`    | Player username          |
-| `{server_hash}` | Hash of the server       |
-| `{ip}`          | IP Address of the player |
+如果启用了`prevent_proxy_connections`，则用于认证的URL。如果未指定，则使用Mojang的会话服务器进行认证。
+
+##### 占位符
+
+| 占位符             | 描述      |
+|-----------------|---------|
+| `{username}`    | 玩家用户名   |
+| `{server_hash}` | 服务器的哈希值 |
+| `{ip}`          | 玩家的IP地址 |
 
 :::code-group
+
 ```toml [features.toml] {2}
 [authentication]
-prevent_proxy_connection_auth_url = "[custom auth server here]"
+prevent_proxy_connection_auth_url = "[自定义认证服务器地址]"
 ```
+
 :::
 
-### Player Profile
+### 玩家档案
 
-#### `allow_banned_players`: Boolean
-Allow players flagged by Mojang.
+#### `allow_banned_players`: 布尔值
+
+允许被Mojang标记的玩家。
 
 :::code-group
+
 ```toml [features.toml] {2}
 [authentication.player_profile]
 allow_banned_players = true
 ```
+
 :::
 
-#### `allowed_actions`: String Array
-What actions are allowed if `allow_banned_players` is enabled.
+#### `allowed_actions`: 字符串数组
+
+如果启用了`allow_banned_players`，允许的操作。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.player_profile]
 allow_banned_players = true
 allowed_actions = ["FORCED_NAME_CHANGE", "USING_BANNED_SKIN"]
 ```
+
 :::
 
-### Textures
+### 纹理
 
-#### `enabled`: Boolean
-Whether to filter/validate player textures (e.g. Skins/Capes).
+#### `enabled`: 布尔值
+
+是否过滤/验证玩家纹理（例如皮肤/披风）。
 
 :::code-group
+
 ```toml [features.toml] {2}
 [authentication.textures]
 enabled = true
 ```
+
 :::
 
-#### `allowed_url_schemes`: String Array
-Allowed URL Schemes for textures.
+#### `allowed_url_schemes`: 字符串数组
+
+允许的纹理URL方案。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.textures]
 enabled = true
 allowed_url_schemes = ["http", "https"]
 ```
+
 :::
 
-#### `allowed_url_domains`: String Array
-Allowed URL domains for textures.
+#### `allowed_url_domains`: 字符串数组
+
+允许的纹理URL域名。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.textures]
 enabled = true
 allowed_url_domains = [".minecraft.net", ".mojang.com"]
 ```
+
 :::
 
-### Texture Types
+### 纹理类型
 
-#### `skin`: Boolean
-Whether to use player skins or not.
+#### `skin`: 布尔值
+
+是否使用玩家皮肤。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.textures.types]
 skin = true
 ```
+
 :::
 
-#### `cape`: Boolean
-Whether to use player capes or not.
+#### `cape`: 布尔值
+
+是否使用玩家披风。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.textures.types]
 cape = true
 ```
+
 :::
 
-#### `elytra`: Boolean
-Whether to use player elytras or not.
+#### `elytra`: 布尔值
+
+是否使用玩家鞘翅。
 
 :::code-group
+
 ```toml [features.toml] {3}
 [authentication.textures.types]
 elytra = true
 ```
+
 :::
 
-## Default Config
-By default, authentication is enabled and uses Mojang's servers. Here is the default config:
+## 默认配置
+
+默认情况下，认证已启用并使用Mojang的服务器。以下是默认配置：
 :::code-group
+
 ```toml [features.toml]
 [authentication]
 enabled = true
@@ -174,4 +212,5 @@ skin = true
 cape = true
 elytra = true
 ```
+
 :::

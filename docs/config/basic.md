@@ -1,10 +1,10 @@
-# Basic Configuration
+# 基本配置
 
-Representing `configuration.toml`
+代表 `configuration.toml`
 
-## Server Address
+## 服务器地址
 
-The address to bind the server to.
+服务器绑定的地址。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -12,9 +12,9 @@ server_address = "0.0.0.0:25565"
 ```
 :::
 
-## Seed
+## 种子
 
-The seed for world generation.
+世界生成的种子。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -22,9 +22,9 @@ seed = ""
 ```
 :::
 
-## Max players
+## 最大玩家数
 
-The maximum number of players allowed on the server.
+服务器允许的最大玩家数量。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -32,9 +32,9 @@ max_players = 100000
 ```
 :::
 
-## View distance
+## 视野距离
 
-The maximum view distance for players.
+玩家的最大视野距离。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -42,9 +42,9 @@ view_distance = 10
 ```
 :::
 
-## Simulation distance
+## 模拟距离
 
-The maximum simulation distance for players.
+玩家的最大模拟距离。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -52,9 +52,9 @@ simulation_distance = 10
 ```
 :::
 
-## Default difficulty
+## 默认难度
 
-The default game difficulty.
+游戏的默认难度。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -70,9 +70,9 @@ Normal
 Hard
 ```
 
-## Operation permission level
+## 操作权限等级
 
-The default permission level for all players.
+所有玩家的默认权限等级。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -80,9 +80,9 @@ op_permission_level = 4
 ```
 :::
 
-## Allow nether
+## 允许下界
 
-Whether the Nether dimension is enabled.
+是否启用下界维度。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -90,9 +90,9 @@ allow_nether = true
 ```
 :::
 
-## Hardcore
+## 硬核模式
 
-Whether the server is in hardcore mode.
+服务器是否处于硬核模式。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -100,9 +100,9 @@ hardcore = false
 ```
 :::
 
-## Online Mode
+## 在线模式
 
-Whether online mode is enabled. Requires valid Minecraft accounts.
+是否启用在线模式。需要有效的Minecraft账户。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -110,12 +110,12 @@ online_mode = true
 ```
 :::
 
-## Encryption
+## 加密
 
-Whether packet encryption is enabled.
+是否启用数据包加密。
 
 > [!IMPORTANT]
-> Required when online mode is enabled.
+> 启用在线模式时需要。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -123,19 +123,19 @@ encryption = true
 ```
 :::
 
-## Motd
+## 服务器描述
 
-The server's description displayed on the status screen.
+在状态屏幕上显示的服务器描述。
 
 :::code-group
 ```toml [configuration.toml] {2}
-motd = "A Blazing fast Pumpkin Server!"
+motd = "一个超快的南瓜服务器！"
 ```
 :::
 
 ## TPS
 
-The target server's Tick rate.
+服务器的目标Tick速率。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -143,13 +143,13 @@ tps = 20.0
 ```
 :::
 
-## Default gamemode
+## 默认游戏模式
 
-The default game mode for players.
+玩家的默认游戏模式。
 
 :::code-group
 ```toml [configuration.toml] {2}
-default_gamemode = "Survival"
+default_gamemode = "生存"
 ```
 :::
 
@@ -161,9 +161,9 @@ Adventure
 Spectator
 ```
 
-## IP Scrubbing
+## IP擦除
 
-Whether to scrub player IPs from logs.
+是否从日志中擦除玩家IP。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -171,9 +171,9 @@ scrub_ips = true
 ```
 :::
 
-## Use favicon
+## 使用图标
 
-Whether to use a server favicon or not.
+是否使用服务器图标。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -181,9 +181,9 @@ use_favicon = true
 ```
 :::
 
-## Favicon path
+## 图标路径
 
-The path to the server's favicon.
+服务器图标的路径。
 
 :::code-group
 ```toml [configuration.toml] {2}

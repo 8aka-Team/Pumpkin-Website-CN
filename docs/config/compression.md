@@ -1,13 +1,13 @@
-# Compression
-Compression is used to reduce the size of packets. This is beneficial to reduce bandwidth server side and also to help players on slower internet connections.
+# 压缩
+压缩用于减少数据包的大小。这有助于减少服务器端的带宽使用，并帮助网络连接较慢的玩家。
 
-## Configuring Compression
+## 配置压缩
 
-#### `enabled`: Boolean
-Whether packet compression is enabled or not.
+#### `enabled`: 布尔值
+是否启用数据包压缩。
 
 > [!TIP]
-> It might be beneficial to disable compression if the server is behind a proxy.
+> 如果服务器位于代理后面，禁用压缩可能是有益的。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -16,12 +16,12 @@ enabled = true
 ```
 :::
 
-#### `threshold`: Integer (0-1024)
+#### `threshold`: 整数 (0-1024)
 
-The minimum packet size before the server attempts to compress the packet.
+服务器尝试压缩数据包之前的最小数据包大小。
 
 > [!CAUTION]
-> Increasing this value can hurt players on slower connections.
+> 增加此值可能会影响网络连接较慢的玩家。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -30,9 +30,9 @@ threshold = 256
 ```
 :::
 
-#### `level`: Integer (0-9)
+#### `level`: 整数 (0-9)
 
-A value between 0 to 9: 0 to disable compression, 1 being the fastest compression (at the cost of size), and 9 being maximum compression (at the cost of speed).
+一个介于0到9之间的值：0表示禁用压缩，1表示最快的压缩（以大小为代价），9表示最大压缩（以速度为代价）。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -41,9 +41,9 @@ level = 4
 ```
 :::
 
-## Default Config
+## 默认配置
 
-By default, compression is enabled.
+默认情况下，压缩是启用的。
 
 :::code-group
 ```toml [features.toml]

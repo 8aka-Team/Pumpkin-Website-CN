@@ -1,10 +1,10 @@
-# Logging
-Pumpkin allows you to customize what you want in your logs.
+# 日志记录
+Pumpkin 允许您自定义日志内容。
 
-## Configuring Logging
+## 配置日志记录
 
-#### `enabled`: Boolean
-Whether logging is enabled or not.
+#### `enabled`: 布尔值
+是否启用日志记录。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -13,8 +13,8 @@ enabled = true
 ```
 :::
 
-#### `level`: Enum
-What should be logged. Possible values are:
+#### `level`: 枚举
+应记录哪些内容。可能的值为：
 - Off
 - Error
 - Warn
@@ -26,12 +26,12 @@ What should be logged. Possible values are:
 ```toml [features.toml] {3}
 [logging]
 enabled = true
-level = "Debug"
+level = "调试"
 ```
 :::
 
-#### `env`: Boolean
-Whether to allow choosing the log level by setting the `RUST_LOG` environment variable or not.
+#### `env`: 布尔值
+是否允许通过设置 `RUST_LOG` 环境变量来选择日志级别。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -41,8 +41,8 @@ env = true
 ```
 :::
 
-#### `threads`: Boolean
-Whether to print threads in the logging message or not.
+#### `threads`: 布尔值
+是否在日志消息中打印线程信息。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -52,8 +52,8 @@ threads = false
 ```
 :::
 
-#### `color`: Boolean
-Whether to print with color to the console or not.
+#### `color`: 布尔值
+是否在控制台中打印彩色日志。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -63,8 +63,8 @@ color = false
 ```
 :::
 
-#### `timestamp`: Boolean
-Whether to print the timestamp in the meessage or not.
+#### `timestamp`: 布尔值
+是否在消息中打印时间戳。
 
 :::code-group
 ```toml [features.toml] {3}
@@ -74,17 +74,18 @@ timestamp = false
 ```
 :::
 
-## Default Config
-By default, logging is enabled and will print with color, threads, and timestamp at the `Info` level. 
+## 默认配置
+默认情况下，日志记录是启用的，并且会在 `信息` 级别打印带有颜色、线程信息和时间戳的日志。
 
 :::code-group
 ```toml [features.toml]
 [logging]
 enabled = true
-level = "Info"
+level = "信息"
 env = false
 threads = true
 color = true
 timestamp = true
 ```
 :::
+
