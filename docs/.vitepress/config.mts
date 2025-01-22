@@ -4,8 +4,8 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
     title: "Pumpkin",
     description:
-        "A High-performance Minecraft server software written in Rust",
-    lang: "en-US",
+        "一个用Rust编写的高性能Minecraft服务器核心",
+    lang: "zh-CN",
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         search: {
@@ -13,57 +13,57 @@ export default defineConfig({
         },
         nav: [
             {
-                text: "Documentation",
+                text: "文档",
                 link: "/about/introduction",
             },
         ],
         sidebar: [
             {
-                text: "About",
+                text: "关于",
                 items: [
-                    { text: "Introduction", link: "/about/introduction" },
-                    { text: "Quick Start", link: "/about/quick-start" },
-                    { text: "Benchmarks", link: "/about/benchmarks" },
+                    { text: "介绍", link: "/about/introduction" },
+                    { text: "快速开始", link: "/about/quick-start" },
+                    { text: "基准测试", link: "/about/benchmarks" },
                 ],
             },
             {
-                text: "Configuration",
+                text: "配置",
                 items: [
-                    { text: "Introduction", link: "/config/introduction" },
-                    { text: "Basic", link: "/config/basic" },
-                    { text: "Proxy", link: "/config/proxy" },
-                    { text: "Authentication", link: "/config/authentication" },
-                    { text: "Compression", link: "/config/compression" },
-                    { text: "Resource Pack", link: "/config/resource-pack" },
-                    { text: "Commands", link: "/config/commands" },
+                    { text: "介绍", link: "/config/introduction" },
+                    { text: "基础", link: "/config/basic" },
+                    { text: "代理", link: "/config/proxy" },
+                    { text: "认证", link: "/config/authentication" },
+                    { text: "压缩", link: "/config/compression" },
+                    { text: "资源包", link: "/config/resource-pack" },
+                    { text: "命令", link: "/config/commands" },
                     { text: "RCON", link: "/config/rcon" },
                     { text: "PVP", link: "/config/pvp" },
-                    { text: "Logging", link: "/config/logging" },
-                    { text: "Query", link: "/config/query" },
-                    { text: "LAN Broadcast", link: "/config/lan-broadcast" },
+                    { text: "日志", link: "/config/logging" },
+                    { text: "查询", link: "/config/query" },
+                    { text: "局域网广播", link: "/config/lan-broadcast" },
                 ],
             },
             {
-                text: "Developers",
+                text: "开发者",
                 items: [
-                    { text: "Contributing", link: "/developer/contributing" },
-                    { text: "Introduction", link: "/developer/introduction" },
+                    { text: "贡献", link: "/developer/contributing" },
+                    { text: "介绍", link: "/developer/introduction" },
                     {
-                        text: "Networking",
+                        text: "网络",
                         link: "/developer/networking/networking",
                         items: [
-                            { text: "Authentication", link: "/developer/networking/authentication" },
+                            { text: "认证", link: "/developer/networking/authentication" },
                             { text: "RCON", link: "/developer/networking/rcon" },
                         ]
                     },
-                    { text: "World", link: "developer/world" },
+                    { text: "世界", link: "developer/world" },
                 ],
             },
             {
-                text: "Troubleshooting",
+                text: "故障排除",
                 items: [
                     {
-                        text: "Common Issues",
+                        text: "常见问题",
                         link: "/troubleshooting/common_issues.md",
                     },
                 ],
@@ -82,11 +82,11 @@ export default defineConfig({
         },
         editLink: {
             pattern:
-                "https://github.com/Pumpkin-MC/Pumpkin-Website/blob/master/docs/:path",
-            text: "Edit this page on GitHub",
+                "https://github.com/8aka-Team/Pumpkin-Website-CN/blob/master/docs/:path",
+            text: "在 GitHub 编辑此页",
         },
         lastUpdated: {
-            text: "Updated at",
+            text: "更新于",
             formatOptions: {
                 dateStyle: "medium",
                 timeStyle: "medium",

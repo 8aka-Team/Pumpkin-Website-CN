@@ -1,7 +1,6 @@
-# Pumpkin
+# Pumpkin 
 
-Pumpkin is a Minecraft server built entirely in **Rust**, offering a fast, efficient,
-and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.
+Pumpkin 是一个完全用**Rust**构建的Minecraft服务器，提供快速、高效和可定制的体验。它在遵循游戏核心机制的同时，优先考虑性能和玩家的乐趣。
 
 <picture>
   <source srcset="/assets/introduction-preview-2560x1440.png" media="(min-width: 2560px)">
@@ -10,28 +9,26 @@ and customizable experience. It prioritizes performance and player enjoyment whi
   <img src="/assets/introduction-preview-1280x720.png" alt="introduction-preview">
 </picture>
 
-## What Pumpkin wants to achieve
+## Pumpkin 的目标
 
-- **Performance**: Leveraging multi-threading for maximum speed and efficiency.
-- **Compatibility**: Supports the latest Minecraft server version and adheres to vanilla game mechanics.
-- **Security**: Prioritizes security by preventing known security exploits.
-- **Flexibility**: Highly configurable, with the ability to disable unnecessary features.
-- **Extensibility**: Provides a foundation for plugin development.
+- **性能**：利用多线程实现最大速度和效率。
+- **兼容性**：支持最新的Minecraft服务器版本，并遵循原版游戏机制。
+- **安全性**：通过防止已知的安全漏洞来优先考虑安全性。
+- **灵活性**：高度可配置，能够禁用不必要的功能。
+- **可扩展性**：为插件开发提供基础。
 
-## What Pumpkin will not
+## Pumpkin 不会
 
-- Be compatible with plugins or mods for other servers
-- Function as a framework for building a server from scratch.
+- 兼容其他服务器的插件或模组
+- 作为从头开始构建服务器的框架。
 
-> [!IMPORTANT]
-> Pumpkin is currently under heavy development. Check out our [Github Project](https://github.com/users/Snowiiii/projects/12/views/3) to see current progress
+> [!重要]
+> Pumpkin 目前正在积极开发中。查看我们的[Github项目](https://github.com/users/Snowiiii/projects/12/views/3)以了解当前进展。
 
-## Vanilla
+## 原版
 
-Pumpkin is designed to replicate vanilla Minecraft logic as closely as possible,
-ensuring a familiar gameplay experience. However, we've also added new features to enhance your gameplay.
+Pumpkin 旨在尽可能接近地复制原版Minecraft逻辑，确保熟悉的游戏体验。然而，我们也添加了新功能以增强您的游戏体验。
 
-### Redstone
+### 红石
 
-Unlike other forks that may compromise vanilla redstone mechanics, Pumpkin maintains the original redstone behavior.
-If you're looking to experiment with redstone modifications or seek performance optimizations, you have the flexibility to do so through our configurable settings.
+与其他可能妥协原版红石机制的分支不同，Pumpkin 保持了原始的红石行为。如果您想尝试红石修改或寻求性能优化，您可以通过我们的可配置设置灵活地进行。
