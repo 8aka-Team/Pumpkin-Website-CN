@@ -7,7 +7,7 @@ export default defineConfig({
         "一个使用Rust编写的高性能，多线程的Minecraft服务端核心",
     lang: "zh-CN",
     sitemap: {
-        hostname: 'https://pumpkin.yizhan.wiki'
+        hostname: 'https://pumpkin.8aka.org'
     },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -143,7 +143,7 @@ export default defineConfig({
         ['script', {}, `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-        
+
           gtag('config', 'G-QK7NXQQ2ZP');`]
 
     ],
