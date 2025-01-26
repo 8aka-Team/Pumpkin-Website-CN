@@ -1,6 +1,6 @@
 # 认证
 
-服务器与Mojang的会话服务器进行认证，以确保客户端使用的是合法且已付费的账户。Pumpkin允许您完全配置认证。
+服务器与Mojang的会话服务器进行身份验证，以确保客户端在合法的付费帐户上玩游戏。Pumpkin允许您完全配置身份验证以支持第三方认证服务器。
 
 ## 配置认证
 
@@ -16,6 +16,7 @@
 ```toml [features.toml] {2}
 [authentication]
 enabled = false
+- 对应Vanilla的online-mode=true
 ```
 
 :::
@@ -30,6 +31,7 @@ enabled = false
 [authentication]
 enabled = true
 prevent_proxy_connections = true
+- 对应Vanilla的prevent-proxy-connections=false
 ```
 
 :::
@@ -79,7 +81,7 @@ prevent_proxy_connection_auth_url = "[自定义认证服务器地址]"
 
 #### `allow_banned_players`: 布尔值
 
-允许被Mojang标记的玩家。
+允许被Mojang封禁的玩家加入服务器。
 
 :::code-group
 

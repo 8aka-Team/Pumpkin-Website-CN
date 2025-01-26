@@ -4,7 +4,7 @@
 
 预发布：目前正在开发中，尚未准备好正式发布。
 
-要运行Pumpkin，首先需要克隆它：
+要运行Pumpkin，首先需要clone它：
 ```shell
 git clone https://github.com/Pumpkin-MC/Pumpkin.git
 cd Pumpkin
@@ -40,7 +40,9 @@ docker compose up --build
 在此`data/`文件夹中，您可以放入您的`world/`文件夹（确保重新启动服务器）。
 
 ## 测试服务器
-Pumpkin有一个由@kralverde维护的测试服务器。它运行在Pumpkin的最新提交上。
+Pumpkin有一个由@kralverde维护的测试服务器。它运行在Pumpkin的最新的commits上。
+
+PS:每晚不定期更新最新版本，进入服务器后将自动获得OP权限
 
 - **IP:** pumpkin.kralverde.dev
 
