@@ -17,7 +17,7 @@ enabled = true
 :::
 
 #### `resource_pack_url`: 字符串
-资源包的直接下载 URL。
+设置资源包的下载 URL。
 
 > [!TIP]
 > 您可以在 [MCPacks](https://mc-packs.net/) 上免费托管资源包。
@@ -31,7 +31,7 @@ resource_pack_url = "[your download URL here]"
 :::
 
 #### `resource_pack_sha1`: 字符串
-资源包的哈希值，使用 SHA1 算法。
+设置资源包的哈希值，使用 SHA1 算法。
 
 > [!IMPORTANT]
 > 虽然不需要指定此字段，但您应该指定此字段，因为否则客户端每次加入服务器时都会重新下载资源包，即使资源包没有更改。
@@ -61,7 +61,7 @@ resource_pack_sha1 = "[your hash here]"
 :::
 
 #### `prompt_message`: 字符串
-提示用户下载资源包时显示的消息。
+设置提示用户下载资源包时显示的消息。
 
 :::code-group
 ```toml [features.toml] {3}

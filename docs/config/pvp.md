@@ -34,7 +34,7 @@ protect_creative = true
 :::
 
 #### `knockback`: 布尔值
-攻击是否带有击退效果。
+是否攻击时带有击退效果。
 
 :::code-group
 ```toml [features.toml] {2}
@@ -44,7 +44,7 @@ knockback = true
 :::
 
 #### `swing`: 布尔值
-玩家攻击时是否挥动武器。
+是否玩家在攻击时挥动武器。
 
 :::code-group
 ```toml [features.toml] {2}

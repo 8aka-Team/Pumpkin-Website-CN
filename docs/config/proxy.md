@@ -35,7 +35,7 @@ enabled = true
 
 #### `secret`: 字符串
 
-在 Velocity 中配置的密钥。
+设置在 Velocity 中配置的密钥。
 
 :::code-group
 ```toml [features.toml]{3}
