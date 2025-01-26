@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Pumpkin'
   text: 'Minecraft 服务器'
-  tagline: 让每个人都能托管快速高效的 Minecraft 服务器,中文社区Q群：[点击链接加入群聊](https://qm.qq.com/q/aaz3qS5Sec)
+  tagline: 让每个人都能托管快速高效的 Minecraft 服务器。
   image:
     src: /assets/icon.png
     alt: Pumpkin
