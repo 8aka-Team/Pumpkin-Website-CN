@@ -1,87 +1,92 @@
-### World Formats
+### 世界格式
 
 > [!IMPORTANT]
-> Currently, Pumpkin only supports Anvil World Format, which is the format used by vanilla
-> Minecraft. There is planned support for other world formats in the future though, as listed below.
+> **目前，Pumpkin仅支持Anvil世界格式，这是原版Minecraft所使用的格式。不过，未来计划支持其他世界格式，如下所述。**
 
-#### Region File Format
+已确定待合并主线的文件格式
+- [线性区域文件格式（Linear region file format）](https://github.com/Pumpkin-MC/Pumpkin/pull/494)
 
-Minecraft Beta 1.3 to Release 1.2 used a Minecraft format known as "Region file format".
+#### 区域文件格式
 
-The files stored in this format are .mcr files, each storing a group of 32x32 chunks called a region.
+Minecraft Beta 1.3 到 Release 1.2 使用了一种名为“区域文件格式”（Region file format）的Minecraft格式。
 
-More details can be found on the [Minecraft Wiki](https://minecraft.wiki/w/Region_file_format).
+这种格式存储的文件是.mcr文件，每个文件存储一个称为区域的32x32区块组。
 
-#### Anvil File Format
+更多详细信息可以在 [Minecraft Wiki](https://minecraft.wiki/w/Region_file_format) 上找到。
 
-Replacing the Region File Format after Minecraft Release 1.2, this is the file format used to store modern vanilla Java Minecraft worlds.
+#### Anvil文件格式
 
-The files stored in this format are .mca files, while using the same region logic, there were a number of changes. The notable changes include an increase
-to a 256 height limit, then to 320, as well as a higher number of block ID's.
+Anvil文件格式是原版Minecraft当前使用的世界格式。它在Minecraft Beta 1.9中被引入，以取代区域文件格式。
 
-More details can be found on the [Minecraft Wiki](https://minecraft.wiki/w/Anvil_file_format).
+Anvil文件以.mca扩展名存储，并且与旧格式相比，提供了多项改进，包括更好的性能和对更大世界的支持。
 
-#### Linear File Format
+更多详细信息可以在 [Minecraft Wiki](https://minecraft.wiki/w/Anvil_file_format)中找到。
 
-There is a more modern file format known as the Linear region file format. Saving on disk space and using the zstd library instead of zlib. This is beneficial as zlib is extremely old and
-outdated.
+#### Linear文件格式
 
-The files stored in this format are .linear files, and it says about 50% of disk space in the Overworld and Nether, while saving 95% in the end.
+线性区域文件格式（Linear region file format）是一种更现代的文件格式，它通过使用 zstd 库而不是 zlib 来节省磁盘空间。
 
-More details can be found at the github page for [LinearRegionFileFormatTools](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools).
+zlib 是一种非常陈旧且过时的库，而 zstd 提供了更好的压缩效率和性能。
 
-#### Slime File Format
+采用线性区域文件格式存储的文件扩展名为 .linear，这种格式在主世界和下界可以节省大约 50% 的磁盘空间，而在末地则可以节省高达 95% 的空间。
 
-Developed by Hypixel to fix many of the pitfalls of the Anvil file format, Slime also replaces zlib and saves space compared to Anvil, in addition to saving the entire world in a single save
-file, and allowing that file to be loaded into multiple instances.
+更多详细信息可以在 [LinearRegionFileFormatTools](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)中找到。
 
-The files stored in this format are .slime files.
+#### Slime文件格式
 
-More details can be found on the github page for [Slime World Manager](https://github.com/cijaaimee/Slime-World-Manager#:~:text=Slime%20World%20Manager%20is%20a,worlds%20faster%20and%20save%20space.), as well as on [Dev Blog #5](https://hypixel.net/threads/dev-blog-5-storing-your-skyblock-island.2190753/) for Hypixel.
+Slime文件格式是由Hypixel开发的一种改进型世界存储格式，旨在解决Anvil文件格式的许多问题。
 
-#### Schematic File Format
+它通过替换zlib，进一步节省了存储空间，并且将整个世界保存在一个单独的文件中，这使得加载和管理世界更加高效。
 
-Unlike the other File Formats listed, the Schematic File Format is not for storing minecraft worlds, but instead for use within 3rd party programs such as MCEdit, WorldEdit, and Schematica.
+此外，这种格式允许同一个文件被加载到多个实例中，从而提高了服务器的灵活性和性能。
 
-The files stored in this format are .schematic files, and are stored in NBT format.
+更多详细信息可以在[Slime World Manager](https://github.com/cijaaimee/Slime-World-Manager#:~:text=Slime%20World%20Manager%20is%20a,worlds%20faster%20and%20save%20space.)的GitHub页面上找到，也可以在Hypixel的[Dev Blog #5](https://hypixel.net/threads/dev-blog-5-storing-your-skyblock-island.2190753/)中查看。
 
-More details can be found on the [Minecraft Wiki](https://minecraft.wiki/w/Schematic_file_format)
+#### Schematic文件格式
 
-### World Generation
+与其他列出的文件格式不同，Schematic文件格式并不是用于存储Minecraft世界，而是用于第三方程序，例如MCEdit、WorldEdit和Schematica。
 
-When the server is starting up, it checks if there is a save present, also known as the "world"
+这种格式存储的文件是.schematic文件，并且是以NBT格式存储的，大多数情况用来储存结构等建筑信息。
 
-Pumpkin then calls for World Generation:
+更多详细信息可以在[Minecraft Wiki](https://minecraft.wiki/w/Schematic_file_format)中找到
 
-#### Save Present
+### 世界生成
 
-AnvilChunkReader is called to process the region files for the given save
+当服务器启动时，它会检查是否存在一个存档，也就是所谓的“世界”。
 
--   As stated above, region files store 32x32 chunks
-    > Each region file is named corresponding to coordinates of where it is in the world
+随后，Pumpkin会调用世界生成功能：
+
+#### 存在存档
+
+调用Anvil区块读取器（AnvilChunkReader）来处理给定存档的区域文件
+
+-   如上所述，区域文件存储了32x32区块。
+    > 每个区域文件的命名都对应于其在世界中的坐标。
 
 > r.{}.{}.mca
 
--   The location table is read from the save file, representing the chunk coordinates
--   The timestamp table is read from the save file, representing the last time the chunk was modified
+-   从存档文件中读取位置表，表示区块的坐标。
+-   从存档文件中读取时间戳表，表示区块最后一次被修改的时间。
 
-#### No Save Present
+#### 不存在存档
 
-The world seed is set to "0", in the future it will be set to the value in Basic Configuration
+世界种子被设置为“0”，在未来它将被设置为基本配置中的值。
 
-PlainsGenerator is called, as so far the plains is the only biome that has been implemented.
+随后调用了平原生成器（PlainsGenerator），因为到目前为止，平原是唯一实现的生物群系。
 
--   PerlinTerrainGenerator is called to set chunk height
--   Stone height is set 5 below chunk height
--   Dirt height is set to 2 below chunk height
--   Grass Blocks appear at the top of dirt
--   Bedrock is set at y = -64
--   Flowers and short grass are scattered about randomly
+-   PerlinTerrainGenerator 被调用来设置区块高度。
+-   石头高度被设置为区块高度以下5格。
+-   土壤高度被设置为区块高度以下2格。
+-   草方块出现在土壤的顶部。
+-   基岩被设置在 y = -64。
+-   花朵和矮草随机分布。
 
-SuperflatGenerator is also available, but is not currently callable.
+SuperflatGenerator 也是可用的，但目前无法调用。
 
--   Bedrock is set at y = -64
--   Dirt is set two blocks up
--   Grass Block is set one more block up
+-   基岩设置在 y = -64
+-   土壤设置在基岩上方两格
+-   草方块设置在土壤上方一格
 
-Blocks are able to be placed and broken, but changes are not able to be saved in any world format. Anvil worlds are currently read only.
+玩家可以放置和破坏方块，但这些更改无法在任何世界格式中保存。
+
+再编写这个中文文档的时候，[Anvil世界](https://github.com/Pumpkin-MC/Pumpkin/pull/401)以支持保存世界格式
