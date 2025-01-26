@@ -18,7 +18,7 @@ cd Pumpkin
 
 然后运行：
 
-> [!注意]
+> [!IMPORTANT]
 > 这可能需要一些时间，因为我们为发布版本启用了大量优化。
 >
 > 要应用特定于您的CPU的进一步优化并使用您的CPU功能，您应该设置target-cpu=native Rust标志。
