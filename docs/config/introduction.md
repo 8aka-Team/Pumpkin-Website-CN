@@ -14,7 +14,7 @@ Pumpkin 的配置分为基础配置和高级配置，基础配置用于快速更
 Pumpkin 旨在支持最新的 Minecraft 版本。如果您想在其他版本上托管 Pumpkin 服务器，有一个名为 [ViaProxy](https://github.com/ViaVersion/ViaProxy) 的项目。
 
 - 请确保允许代理连接。
-- Pumpkin 和 ViaProxy 没有关联，不要提交关于它们代码的问题。此外，这是一个第三方代理，Pumpkin 不对其好坏承担任何责任。
+- Pumpkin 和 ViaProxy 没有关联，不要提交关于它们代码的问题。此外，这是一个第三方代理，Pumpkin 不对其承担任何责任。
 
 #### 主要特点：
 

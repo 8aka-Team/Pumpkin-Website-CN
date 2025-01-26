@@ -13,7 +13,7 @@ use_console = false
 :::
 
 #### `log_console`: 布尔值
-是否应在控制台中记录来自玩家的命令。
+是否在控制台中记录来自玩家的命令。
 
 :::code-group
 ```toml [features.toml] {2}

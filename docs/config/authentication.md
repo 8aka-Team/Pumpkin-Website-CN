@@ -16,7 +16,7 @@
 ```toml [features.toml] {2}
 [authentication]
 enabled = false
-- 对应Vanilla的online-mode=true
+- 对应Vanilla的online-mode=
 ```
 
 :::
@@ -31,7 +31,7 @@ enabled = false
 [authentication]
 enabled = true
 prevent_proxy_connections = true
-- 对应Vanilla的prevent-proxy-connections=false
+- 对应Vanilla的prevent-proxy-connections=
 ```
 
 :::

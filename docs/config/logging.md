@@ -14,7 +14,7 @@ enabled = true
 :::
 
 #### `level`: 枚举
-应记录哪些内容。可能的值为：
+设置应记录哪些内容。可能的值为：
 - Off
 - Error
 - Warn

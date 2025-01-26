@@ -47,7 +47,7 @@ PS:每晚不定期更新最新版本，进入服务器后将自动获得OP权限
 - **IP:** pumpkin.kralverde.dev
 
 **规格：**
-- 操作系统：Debian GNU/Linux bookworm 12.7 x86_64
+- 系统：Debian GNU/Linux bookworm 12.7 x86_64
 - 内核：Linux 6.1.0-21-cloud-amd64
 - CPU：Intel Core (Haswell, no TSX) (2) @ 2.40 GHz
 - 内存：4GB DIMM
