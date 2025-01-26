@@ -20,7 +20,7 @@ hero:
       text: 开发者指南
       link: /developer/introduction
     - theme: alt
-      text: 点击链接加入群
+      text: 加入QQ群
       link: https://qm.qq.com/q/aaz3qS5Sec
   
 features:
