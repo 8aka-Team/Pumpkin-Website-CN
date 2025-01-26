@@ -96,9 +96,9 @@ allow_nether = true
 ```
 :::
 
-## 硬核模式
+## 极限模式
 
-是否启用服务器的硬核模式。
+是否启用服务器的极限模式。
 
 :::code-group
 ```toml [configuration.toml] {2}
