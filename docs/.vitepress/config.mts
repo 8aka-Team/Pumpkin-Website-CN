@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
     title: "Pumpkin",
     description:
-        "一个用Rust编写的高性能Minecraft服务器核心",
+        "一个使用Rust编写的高性能，多线程的Minecraft服务端核心",
     lang: "zh-CN",
     sitemap: {
         hostname: 'https://pumpkin.yizhan.wiki'
@@ -42,7 +42,7 @@ export default defineConfig({
                     { text: "RCON", link: "/config/rcon" },
                     { text: "PVP", link: "/config/pvp" },
                     { text: "日志", link: "/config/logging" },
-                    { text: "查询", link: "/config/query" },
+                    { text: "Query", link: "/config/query" },
                     { text: "局域网广播", link: "/config/lan-broadcast" },
                 ],
             },
@@ -55,11 +55,42 @@ export default defineConfig({
                         text: "网络",
                         link: "/developer/networking/networking",
                         items: [
-                            { text: "认证", link: "/developer/networking/authentication" },
+                            { text: "身份验证", link: "/developer/networking/authentication" },
                             { text: "RCON", link: "/developer/networking/rcon" },
                         ]
                     },
                     { text: "世界", link: "developer/world" },
+                ],
+            },
+            {
+                text: "插件文档",
+                items: [
+                    {
+                        text: "介绍",
+                        link: "/plugin-dev/introduction",
+                    },
+                    {
+                        text: "示例插件",
+                        link: "/plugin-dev/example-plugin/introduction",
+                        items: [
+                            {
+                                text: "环境设置",
+                                link: "/plugin-dev/example-plugin/environment",
+                            },
+                            {
+                                text: "创建项目",
+                                link: "/plugin-dev/example-plugin/creating-project",
+                            },
+                            {
+                                text: "基本逻辑",
+                                link: "/plugin-dev/example-plugin/basic-logic",
+                            },
+                            {
+                                text: "加入事件",
+                                link: "/plugin-dev/example-plugin/join-event",
+                            },
+                        ],
+                    },
                 ],
             },
             {
