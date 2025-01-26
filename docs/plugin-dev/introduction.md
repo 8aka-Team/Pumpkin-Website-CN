@@ -1,10 +1,9 @@
-# Pumpkin Plugin Development
-::: warning
-The Pumpkin Plugin API is still in a very early stage of development and may change at any time.
-If you run into any issues please reach out on [our discord](https://discord.gg/aaNuD6rFEe)
+# Pumpkin插件开发
+::: 警告
+Pumpkin插件API仍处于非常早期的开发阶段，可能会随时更改。
+如果您遇到任何问题，请联系我们 [discord](https://discord.gg/aaNuD6rFEe)
 :::
 
-Pumpkin Plugins integrate with the server software on a very deep level allowing for many things that would not be possible on other server software.
+Pumpkin插件与服务器软件深度集成，允许实现许多在其他服务器软件上不可能实现的功能。
 
-The Pumpkin Plugin API takes inspiration from the Spigot/Bukkit plugin API in many places, so if you have previous experience with these and have experience with rust development, you should have a pretty easy time writing plugins for Pumpkin :smile:
-
+Pumpkin插件API在许多方面受到了Spigot/Bukkit插件API的启发，因此，如果您之前有这些API的经验，并且有Rust开发经验，您应该能够轻松编写Pumpkin插件：:smile:

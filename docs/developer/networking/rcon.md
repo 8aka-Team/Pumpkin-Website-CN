@@ -1,64 +1,65 @@
 ### RCON
 
-### What is RCON
+### 什么是RCON
 
-RCON (Remote Console) is a protocol designed by Valve to allow administrators to control and manage game servers remotely. It provides a way to execute commands on a server from a different location, such as a phone or a separate computer.
+RCON（远程控制台）是Valve设计的一种协议，允许管理员远程控制和管理游戏服务器。
+它提供了一种从不同地点（如手机或另一台计算机）在服务器上执行命令的方法。
 
-### Why RCON
+### 为什么使用RCON
 
-- **Convenience:** Manage your server from anywhere with an internet connection.
-- **Flexibility:** Execute commands without needing to be physically present at the server's location.
-- **Efficiency:** Automate tasks and streamline server management.
+- **便利性:** 只要有互联网连接，就可以从任何地方管理您的服务器。
+- **灵活性:** 无需亲自到服务器所在地即可执行命令。
+- **效率:** 自动化任务，简化服务器管理。
 
 ### SSH vs RCON
 
 **SSH**
 
-- Offers strong encryption to protect data transmitted between the client and server.
-- Primarily designed for secure remote login and execution of commands on a remote machine.
-- Commonly used for managing Linux/Unix systems, configuring networks, and running scripts.
-- Provides a shell-like environment, allowing you to execute various commands and interact with the remote system.
+- 提供强大的加密来保护客户端和服务器之间传输的数据。
+- 主要设计用于安全地远程登录和在远程机器上执行命令。
+- 常用于管理Linux/Unix系统、配置网络和运行脚本。
+- 提供类似shell的环境，允许您执行各种命令并与远程系统交互。
 
 **RCON**
 
-- Specifically designed for remote administration of game servers, allowing you to control and manage the server's settings and operations.
-- Typically less secure than SSH, as it often relies on plain text passwords.
-- Primarily used by game server administrators to manage game servers.
-- Has a limited set of game-specific commands.
+- 专为远程管理游戏服务器而设计，允许您控制和管理服务器的设置和操作。
+- 通常不如SSH安全，因为它经常依赖于明文密码。
+- 主要由游戏服务器管理员用来管理游戏服务器。
+- 拥有一套有限的特定于游戏的命令。
 
-### Packets
+### 数据包
 
-RCON is a very simple protocol with a few packets. Here's how an RCON packet looks:
+RCON是一个非常简单的协议，包含几种数据包。以下是RCON数据包的样子：
 
-| Field | Description                                     |
-| ----- | ----------------------------------------------- |
-| ID    | Used to indicate whether authentication failed or succeeded |
-| Type  | Identifies the packet type                      |
-| Body  | A message (String), e.g., a command or a password |
+| 字段   | 描述                                     |
+|------| ----------------------------------------------- |
+| ID   | 用于指示身份验证失败或成功 |
+| Type | 标识数据包类型                     |
+| Body | 一条消息（字符串），例如，一个命令或一个密码 |
 
-#### Server Bound Packets <sub><sub>(Client→Server)</sub></sub>
+#### 服务器端数据包 <sub><sub>(Client→Server)</sub></sub>
 
-| Type | Packet      |
+| 字段 | 数据包      |
 | ---- | ----------- |
 | 2    | Auth        |
 | 3    | ExecCommand |
 
-#### Client Bound Packets <sub><sub>(Server→Client)</sub></sub>
+#### 客户端数据包 <sub><sub>(Server→Client)</sub></sub>
 
-| Type | Packet       |
+| 字段 | 数据包       |
 | ---- | ------------ |
 | 2    | AuthResponse |
 | 0    | Output       |
 
-### How RCON Works
+### RCON如何工作
 
-1. **Authentication:**
+1. **身份验证:**
 
-   - The RCON client sends an authentication packet with the desired password.
-   - The server verifies the password and responds with an authentication response packet.
-   - If successful, the response packet includes the same ID as the one sent by the client. If unsuccessful, the ID is -1.
+   - RCON客户端发送一个包含所需密码的身份验证数据包。
+   - 服务器验证密码并用身份验证响应数据包回应。
+   - 如果成功，响应数据包包含与客户端发送的相同的ID。如果不成功，ID为-1。
 
-2. **Command Execution:**
+2. **命令执行:**
 
-   - The authenticated client can now send command execution packets, with each packet containing the command to be executed.
-   - The server processes the command and sends back an output packet containing the result or any error messages.
+   - 经过身份验证的客户端现在可以发送命令执行数据包，每个数据包包含要执行的命令。
+   - 服务器处理命令并发送回包含结果或任何错误消息的输出数据包。

@@ -1,43 +1,48 @@
-### Authentication
+### 认证
 
-### Why Authentication
+### 为什么需要认证
 
-Minecraft is the most popular game out there and is very easy to play without paying for it. In fact, you don't pay for the game; you pay for a Minecraft account. People who don't buy the game but play it online are using [Cracked Accounts](#cracked-accounts).
+Minecraft是最受欢迎的游戏之一，而且很容易在不付费的情况下玩到。实际上，你支付的并不是游戏本身，而是Minecraft账户。
+那些没有购买游戏却在线上玩的人，使用的是[离线账户](#cracked-accounts)。
 
-#### Cracked Accounts
+#### 离线账户
 
-- Don't cost any money.
-- Everyone can set their own nickname.
-- Have no UUID.
-- Have no skin/cape.
-- Not secure.
+- 不需要花费任何金钱。
+  每个人都可以设置自己的昵称且不需要考虑冲突。
+  没有唯一的UUID。
+  没有皮肤/披风。
+  不安全。
 
-The problem is that everyone can name themselves however they want, which allows them to join the server as a staff member, for example, and have extended permissions. Cracked accounts are also often used for botting and [Denial of Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks.
+问题在于每个人都可以随意给自己命名，这使得他们可以以管理员的身份加入服务器。
+离线账户也经常被用于机器人操作和DDOS服务攻击。
 
-### Cracked Server
+### 离线服务器
 
-By default, `online_mode` is enabled in the configuration. This enables authentication, disabling [Cracked Accounts](#cracked-accounts). If you want to allow cracked accounts, you can disable `online_mode` in the `configuration.toml`.
+默认情况下，配置中的`online_mode`是启用的。
+这启用了身份验证，禁用了[离线账户](#cracked-accounts)。
+如果您想要允许使用离线账户，您可以在`configuration.toml`中禁用`online_mode`。
 
-### How Mojang Authentication Works
+### Mojang身份验证如何工作
 
-To ensure a player has a premium account:
+为了确保玩家拥有高级权限的账户：
 
-1. A client with a premium account sends a login request to the Mojang session server.
-2. **Mojang's servers** verify the client's credentials and add the player to their servers.
-3. Our server sends a request to the session servers to check if the player has joined the session server.
-4. If the request is successful, it will provide more information about the player (e.g., UUID, name, skin/cape...).
+1. 拥有高级账户的客户端向Mojang会话服务器发送登录请求。
+2. Mojang的服务器验证客户端的凭证并将玩家添加到他们的服务器中。
+3. 我们的服务器向会话服务器发送请求，以检查玩家是否已加入会话服务器。
+4. 如果请求成功，它将提供有关玩家的更多信息（例如，UUID、名称、皮肤/披风等）。
 
-### Custom Authentication Server
 
-Pumpkin does support custom authentication servers. You can replace the authentication URL in `features.toml`.
+### 自定义认证服务器
 
-#### How Pumpkin Authentication Works
+Pumpkin确实支持自定义认证服务器。您可以在`features.toml`中替换认证URL。
 
-1. **GET Request:** Pumpkin sends a GET request to the specified authentication URL.
-2. **Status Code 200:** If the authentication is successful, the server responds with a status code of 200.
-3. **Parse JSON Game Profile:** Pumpkin parses the JSON game profile returned in the response.
+#### Pumpkin身份验证如何工作
 
-#### Game Profile
+1. **GET请求:** Pumpkin向指定的认证URL发送GET请求。
+2. **状态码200:** 如果认证成功，服务器会以状态码200响应。
+3. **解析JSON游戏档案:** Pumpkin解析响应中返回的JSON游戏档案。
+
+#### 游戏档案
 
 ```rust
 struct GameProfile {
@@ -48,7 +53,7 @@ struct GameProfile {
 }
 ```
 
-##### Property
+##### 属性
 
 ```rust
 struct Property {
@@ -58,7 +63,7 @@ struct Property {
 }
 ```
 
-##### Profile Action
+##### 档案操作
 
 ```rust
 enum ProfileAction {
