@@ -1,5 +1,5 @@
 # Pumpkin插件开发
-::: 警告
+::: warning
 Pumpkin插件API仍处于非常早期的开发阶段，可能会随时更改。
 如果您遇到任何问题，请联系我们 [discord](https://discord.gg/aaNuD6rFEe)
 :::

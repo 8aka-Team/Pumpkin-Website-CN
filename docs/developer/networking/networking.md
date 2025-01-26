@@ -1,66 +1,65 @@
-### Networking
+### 网络
 
-Most of the Networking code in Pumpkin can be found at [Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol)
+Pumpkin中的大多数网络代码可以在[Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol)找到。
 
-Serverbound: Client→Server
+服务端: 客户端→服务器
 
-Clientbound: Server→Client
+客户端: 服务器→客户端
 
-### Structure
+### 结构
 
-Packets in the Pumpkin protocol are organized by functionality and state.
+Pumpkin协议中的数据包是根据功能和状态组织的。
 
-`server`: Contains definitions for serverbound packets.
+`server`: 包含服务端数据包的定义。
 
-`client`: Contains definitions for clientbound packets.
+`client`: 包含客户端数据包的定义。
 
-### States
+### 状态
 
-**Handshake**: Always the first packet being sent from the Client. This also determines the next state, usually to indicate if the player wants to perform a Status Request, join the server or wants to be transferred.
+**握手**: 客户端发送的第一个数据包。这也决定了下一个状态，通常用来指示玩家是否想要执行状态请求、加入服务器或想要被转移。
 
-**Status**: Indicates the Client wants to see a Status response (MOTD).
+**状态**: 表示客户端想要看到一个状态响应（MOTD）。
 
-**Login**: The Login sequence. Indicates the Client wants to join to the Server.
+**登录**: 登录序列。表示客户端想要加入服务器。
 
-**Config**: A sequence of Configuration packets is mostly sent from the Server to the Client. (Features, Resource Pack, Server Links, etc.)
+**配置**: 配置数据包的序列主要从服务器发送到客户端。（特性、资源包、服务器链接等）
 
-**Play**: The final state, which indicates the Player is now ready to join, is also used to handle all other Gameplay packets.
+**游玩**: 最终状态，表示玩家现在已准备好加入，也用于处理所有其他游戏数据包。
 
-### Minecraft Protocol
+### Minecraft协议
 
-You can find all Minecraft Java packets at https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol. There you also can see in which [State](#States) they are.
-You can also can see all the information the Packets have, which we can either Write or Read depending on whether they are Serverbound or Clientbound.
+您可以在 [Minecraft Wiki的Protocol](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol) 页面找到所有Minecraft Java数据包。在那里，您也可以看到它们属于哪个状态。
+您还可以看到数据包拥有的所有信息，这些信息我们可以根据它们是服务器端还是客户端数据包来写入或读取。
 
-### Adding a Clientbound Packet
+### 添加客户端数据包
 
-1. Adding a Packet is easy. First, you have to derive serde Serialize for packets.
+1. 添加数据包很容易。首先，您必须为数据包派生出serde Serialize。
 
 ```rust
 #[derive(Serialize)]
 ```
 
-2. Next, you have set the packet using the client_packet macro, This uses the Packet ID automatically sets the Packet ID from the JSON packets file
-
+2. 接下来，您需要使用`client_packet`宏来设置数据包，这将自动使用JSON数据包文件中的Packet ID来设置数据包ID。
 ```rust
 #[client_packet("play:disconnect")]
 ```
 
-3. Now you can create the Struct.
+3. 现在您可以创建结构体了。
 
 > [!IMPORTANT]
-> Please start the Packet name with "C" for Clientbound.
-> Also please add the State to the packet if its a Packet sent in multiple States, For example there are 3 Disconnect Packets.
+> 请以“C”开头来命名客户端数据包。
+> 如果数据包在多个状态下发送，请在数据包中添加状态。例如，有三个断开连接的数据包。
 >
 > -   CLoginDisconnect
 > -   CConfigDisconnect
 > -   CPlayDisconnect
 
-Create fields within your packet structure to represent the data that will be sent to the client.
+在您的数据包结构中创建字段，以表示将要发送到客户端的数据。
 
 > [!IMPORTANT]
-> Use descriptive field names and appropriate data types.
+> 使用描述性的字段名称和适当的数据类型。
 
-Example:
+示例:
 
 ```rust
 pub struct CPlayDisconnect {
@@ -69,9 +68,9 @@ pub struct CPlayDisconnect {
 }
 ```
 
-4. Also don't forgot to impl a new function for Clientbound Packets so we can actually send them by putting in the values.
+4. 同时，不要忘了为客户端数据包实现一个新的函数，这样我们就可以通过插入值来实际发送它们。
 
-Example:
+示例:
 
 ```rust
 impl CPlayDisconnect {
@@ -81,7 +80,7 @@ impl CPlayDisconnect {
 }
 ```
 
-5. In the end, everything should come together.
+5. 最后，所有内容应该整合在一起。
 
 ```rust
 #[derive(Serialize)]
@@ -97,7 +96,7 @@ impl CPlayDisconnect {
 }
 ```
 
-6. You can also Serialize the Packet manually, which can be useful if the Packet is more complex.
+6. 您也可以手动序列化数据包，这在数据包更复杂时会很有用。
 
 ```diff
 -#[derive(Serialize)]
@@ -108,29 +107,28 @@ impl CPlayDisconnect {
 +    }
 ```
 
-7. You can now send the Packet. See [Sending Packets](#sending-packets)
+7. 您现在可以发送数据包了。参见 [发送数据包](#sending-packets)
 
-### Adding a Serverbound Packet
+### 添加服务端数据包
 
-1. Adding a Packet is easy. First, you have to derive serde Deserialize for packets. You should also use the `server_packet` macro to automatically parse the Packet ID
-
+1. 添加数据包很容易。首先，您必须为数据包派生出serde Deserialize。您还应该使用`server_packet`宏来自动解析数据包ID。
 ```rust
 #[derive(Deserialize)]
 #[server_packet("login:move_player_pos")]
 ```
 
-2. Now you can create the Struct.
+2. 现在您可以创建结构体了。
 
 > [!IMPORTANT]
-> Please start the Packet name with "S" for Serverbound.
-> Also please add the State to the packet if its a Packet sent in multiple States.
+> 请以“S”开头来命名服务器端数据包。
+> 如果数据包在多个状态下发送，请在数据包中添加状态。
 
-Create fields within your packet structure to represent the data that will be sent to the client.
+在您的数据包结构中创建字段，以表示将要发送到服务器的数据。
 
 > [!IMPORTANT]
-> Use descriptive field names and appropriate data types.
+> 使用描述性的字段名称和适当的数据类型。
 
-Example:
+示例:
 
 ```rust
 pub struct SPlayerPosition {
@@ -141,7 +139,7 @@ pub struct SPlayerPosition {
 }
 ```
 
-3. In the end, everything should come together.
+3. 最终，所有内容应该整合在一起。
 
 ```rust
 #[derive(Deserialize)]
@@ -154,7 +152,7 @@ pub struct SPlayerPosition {
 }
 ```
 
-4. You can also Deserialize the Packet manually, which can be useful if the Packet is more complex
+4. 您也可以手动反序列化数据包，这在数据包更复杂时会很有用。
 
 ```diff
 -#[derive(Deserialize)]
@@ -170,36 +168,36 @@ pub struct SPlayerPosition {
 +    }
 ```
 
-5. You can listen for the Packet. See [Receive Packets](#receiving-packets)
+5. 您可以监听数据包。参见 [接收数据包](#receiving-packets)
 
-### Client
+### 客户端
 
-Pumpkin has stores Client and Players separately. Everything that is not in the Play State is a Simple Client. Here are the Differences
+Pumpkin将客户端和玩家分开存储。不在游戏状态中的一切都是简单的客户端。以下是不同之处：
 
-**Client**
+**客户端**
 
--   Can only be in Status/Login/Transfer/Config State
--   Is not a living entity
--   Has small resource consumption
+-   只能在状态/登录/传输/配置状态中
+-   不是一个生物实体
+-   资源消耗较小
 
-**Player**
+**玩家**
 
--   Can only be in Play State
--   Is a living entity in a world
--   Has more data, Consumes more resources
+-   只能在游戏状态中
+-   是世界中的一个生物实体
+-   拥有更多数据，消耗更多资源
 
-#### Sending Packets
+#### 发送数据包
 
-Example:
+示例:
 
 ```rust
-// Works only in Status State
+// 仅在Status状态下工作
 client.send_packet(&CStatusResponse::new("{ description: "A Description"}"));
 ```
 
-#### Receiving Packets
+#### 接收数据包
 
-For Clients:
+对于客户端:
 `src/client/mod.rs`
 
 ```diff
@@ -230,7 +228,7 @@ For Clients:
 }
 ```
 
-For Players:
+对于玩家:
 `src/entity/player.rs`
 
 ```diff
@@ -259,12 +257,12 @@ For Players:
 }
 ```
 
-### Compression
+### 压缩
 
-Minecraft Packets **can** use the ZLib compression for decoding/encoding. There is usually a threshold set when compression is applied, this most often affects Chunk Packets.
+Minecraft数据包 **可以** 使用ZLib压缩进行解码/编码。通常在应用压缩时会设置一个阈值，这会影响区块数据包。
 
-### Porting
+### 移植
 
-To port to a new minecraft version, you can compare difference in Protocol on the [wiki.vg merge on minecraft.wiki](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol?action=history)
+要移植到新的Minecraft版本，您可以在以下网址比较协议的差异 [Minecraft Wiki上的wiki.vg_merge](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol?action=history)
 
-Also change the `CURRENT_MC_PROTOCOL` in `src/lib.rs`
+同时更改`src/lib.rs`中的`CURRENT_MC_PROTOCOL`
