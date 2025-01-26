@@ -8,10 +8,10 @@ Minecraft是最受欢迎的游戏之一，而且很容易在不付费的情况�
 #### 离线账户
 
 - 不需要花费任何金钱。
-  每个人都可以设置自己的昵称且不需要考虑冲突。
-  没有唯一的UUID。
-  没有皮肤/披风。
-  不安全。
+- 每个人都可以设置自己的昵称且不需要考虑冲突。
+- 没有唯一的UUID。
+- 没有皮肤/披风。
+- 不安全。
 
 问题在于每个人都可以随意给自己命名，这使得他们可以以管理员的身份加入服务器。
 离线账户也经常被用于机器人操作和DDOS服务攻击。
@@ -49,7 +49,7 @@ struct GameProfile {
     id: UUID,
     name: String,
     properties: Vec<Property>,
-    profile_actions: Option<Vec<ProfileAction>>, // Optional, only present when actions are applied
+    profile_actions: Option<Vec<ProfileAction>>, // 可选的，仅在应用操作时出现
 }
 ```
 
@@ -58,8 +58,8 @@ struct GameProfile {
 ```rust
 struct Property {
     name: String,
-    value: String, // Base64 encoded
-    signature: Option<String>, // Optional, Base64 encoded
+    value: String, // Base64编码
+    signature: Option<String>, // 可选的，Base64编码
 }
 ```
 

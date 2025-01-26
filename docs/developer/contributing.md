@@ -49,8 +49,6 @@
 - 如果您想要贡献文档，请安装 [NodeJS](https://nodejs.org/en)
 
 ### 获取Minecraft源代码
-When working at Pumpkin, we heavily rely on the official Minecraft client and utilize existing server logic. We often refer to the official Minecraft source code.
-The easiest way to get the Minecraft source code is using Fabric Yarn. Make sure you have Gradle installed before running the following commands:
 
 在Pumpkin开发时，我们严重依赖官方Minecraft客户端，并利用现有的服务器逻辑。我们经常参考官方Minecraft源代码。
 
