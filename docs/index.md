@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: 开发者指南
       link: /developer/introduction
+    - theme: alt
+      text: 点击链接加入群
+      link: https://qm.qq.com/q/aaz3qS5Sec
   
 features:
   # Need to add the svg here instead of using src because then it won't have the box around it
