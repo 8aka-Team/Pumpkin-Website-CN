@@ -1,6 +1,6 @@
 # 认证
 
-服务器与 Mojang 的会话服务器进行身份验证，以确保客户端在合法的付费帐户上玩游戏。Pumpkin允许您完全配置身份验证以支持第三方认证服务器。
+服务器与 Mojang 的会话服务器进行身份验证，以确保客户端在合法的付费帐户上玩游戏。Pumpkin 允许您完全配置身份验证以支持第三方认证服务器。
 
 ## 配置认证
 
@@ -36,7 +36,7 @@ prevent_proxy_connections = true
 
 #### `auth_url`: 字符串（可选）
 
-设置用于认证的会话服务器URL。如果未指定，则使用Mojang的会话服务器进行认证。
+设置用于认证的会话服务器 URL。如果未指定，则使用 Mojang 的会话服务器进行认证。
 
 ##### 占位符
 
@@ -56,7 +56,7 @@ auth_url = "[自定义认证服务器地址]"
 
 #### `prevent_proxy_connection_auth_url`: 字符串（可选）
 
-如果启用了`prevent_proxy_connections`，则用于会话服务器URL。如果未指定，则使用Mojang的会话服务器进行认证。
+如果启用了`prevent_proxy_connections`，则用于会话服务器URL。如果未指定，则使用 Mojang 的会话服务器进行认证。
 
 ##### 占位符
 
@@ -79,7 +79,7 @@ prevent_proxy_connection_auth_url = "[自定义认证服务器地址]"
 
 #### `allow_banned_players`: 布尔值
 
-允许被Mojang封禁的玩家加入服务器。
+允许被 Mojang 封禁的玩家加入服务器。
 
 :::code-group
 
@@ -121,7 +121,7 @@ enabled = true
 
 #### `allowed_url_schemes`: 字符串数组
 
-允许的纹理URL方案。
+允许的纹理 URL 方案。
 
 :::code-group
 
@@ -135,7 +135,7 @@ allowed_url_schemes = ["http", "https"]
 
 #### `allowed_url_domains`: 字符串数组
 
-允许的纹理URL域名。
+允许的纹理 URL 域名。
 
 :::code-group
 

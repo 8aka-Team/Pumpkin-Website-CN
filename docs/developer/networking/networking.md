@@ -1,6 +1,6 @@
 ### 网络
 
-Pumpkin 中的大多数网络代码可以在 [Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol)找到。
+Pumpkin 中的大多数网络代码可以在 [Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol) 找到。
 
 服务端: 客户端→服务器
 
@@ -39,7 +39,7 @@ Pumpkin 协议中的数据包是根据功能和状态组织的。
 #[derive(Serialize)]
 ```
 
-2. 接下来，您需要使用`client_packet`宏来设置数据包，这将自动使用JSON数据包文件中的Packet ID来设置数据包ID。
+2. 接下来，您需要使用`client_packet`宏来设置数据包，这将自动使用JSON数据包文件中的 Packet ID 来设置数据包ID。
 ```rust
 #[client_packet("play:disconnect")]
 ```
@@ -111,7 +111,7 @@ impl CPlayDisconnect {
 
 ### 添加服务端数据包
 
-1. 添加数据包很容易。首先，您必须为数据包派生出serde Deserialize。您还应该使用`server_packet`宏来自动解析数据包ID。
+1. 添加数据包很容易。首先，您必须为数据包派生出 serde Deserialize。您还应该使用`server_packet`宏来自动解析数据包ID。
 ```rust
 #[derive(Deserialize)]
 #[server_packet("login:move_player_pos")]
@@ -172,7 +172,7 @@ pub struct SPlayerPosition {
 
 ### 客户端
 
-Pumpkin将客户端和玩家分开存储。不在游戏状态中的一切都是简单的客户端。以下是不同之处：
+Pumpkin 将客户端和玩家分开存储。不在游戏状态中的一切都是简单的客户端。以下是不同之处：
 
 **客户端**
 

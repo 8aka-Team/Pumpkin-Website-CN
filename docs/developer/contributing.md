@@ -2,7 +2,7 @@
 我们感谢您对为 Pumpkin 做出贡献的兴趣！本文档概述了提交错误报告、功能建议和代码更改的指南。
 
 ### 开始
-如果您需要进一步的帮助或有其他问题，请随时 [Discord](https://discord.gg/wT8XjrjKkf).告知，我会尽力为您提供支持。
+如果您需要进一步的帮助或有其他问题，请随时 [Discord](https://discord.gg/wT8XjrjKkf) 告知，我会尽力为您提供支持。
 
 ### 如何贡献？
 您可以以以下几种方式为 Pumpkin 做出贡献：
@@ -32,13 +32,13 @@
 
   现在您有了可以编辑的副本，您将需要一些开发工具。
 
-3. 如果您需要安装Git，可以访问 [Git](https://git-scm.com/downloads) 下载适用于您操作系统的版本。
+3. 如果您需要安装 Git，可以访问 [Git](https://git-scm.com/downloads) 下载适用于您操作系统的版本。
 
 4. Git 是一个分布式版本控制系统，可以帮助您更好地管理代码和协作开发。安装完成后，您就可以开始使用 Git 来克隆、编辑和提交代码了。
 
 - 要开始使用git，请访问 [Git入门](https://docs.github.com/en/get-started/getting-started-with-git)
 
-- 可选：如果您想要一个图形化工具来与Github交互，可以安装 [Github-Desktop](https://desktop.github.com/download/)
+- 可选：如果您想要一个图形化工具来与 Github 交互，可以安装 [Github-Desktop](https://desktop.github.com/download/)
 
 > 如果您不习惯使用命令行，Github Desktop 可能会更容易上手，但并不适合每个人。
 

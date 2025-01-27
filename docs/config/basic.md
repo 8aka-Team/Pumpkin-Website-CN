@@ -5,7 +5,7 @@
 ## 服务端地址
 
 设置服务端绑定的地址。
-（绑定后只允许来自该IP的玩家进入服务端）
+（绑定后只允许来自该 IP 的玩家进入服务端）
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -103,7 +103,7 @@ hardcore = false
 
 ## 在线模式
 
-是否启用在线模式。需要有效的Minecraft账户。
+是否启用在线模式。需要有效的 Minecraft 账户。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -164,7 +164,7 @@ Spectator
 
 ## IP隐藏
 
-是否从日志中隐藏玩家IP。
+是否从日志中隐藏玩家 IP。
 
 :::code-group
 ```toml [configuration.toml] {2}
