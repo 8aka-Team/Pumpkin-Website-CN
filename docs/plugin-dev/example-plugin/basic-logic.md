@@ -1,8 +1,8 @@
-# Writing the basic logic
-## Plugin base
-There is a lot going on under the hood of even a basic plugin, so to greatly simplify plugin development we will use the `pumpkin-api-macros` crate to create a basic empty plugin.
+# 正在编写基本逻辑。
+## 插件基础
+即使是基本插件，其内部也有很多复杂的逻辑，因此为了极大地简化插件开发，我们将使用`pumpkin-api-macros` crate来创建一个基本的空插件。
 
-Open the `src/lib.rs` file and replace its contents with this:
+打开`src/lib.rs`文件，并将其内容替换为以下内容：
 ```rs:line-numbers
 use pumpkin_api_macros::plugin_impl;
 
@@ -21,33 +21,33 @@ impl Default for MyPlugin {
     }
 }
 ```
-This will create a empty plugin and implement all the necessary methods for it to be loaded by pumpkin.
+这将创建一个空插件，并实现所有必要的方法，以便pumpkin能够加载它。
 
-We can now try to compile our plugin for the first time, to do so, run this command in your project folder:
+现在我们可以尝试第一次编译我们的插件，为此，请在项目文件夹中运行以下命令：
 ```bash
 cargo build --release
 ```
 ::: tip NOTICE
-If you are using Windows, you **must** use the `--release` flag, or you will run into issues. If you are on another platform, you don't have to use it if you want to speed up compile time
+如果你使用的是Windows，你必须使用`--release`flag，否则你会遇到很多问题。 如果你使用的是其他平台，就没必要使用这个flag。
 :::
-The initial compilation will take a bit, but don't worry, later compilations will be faster.
+第一次编译会花费一些时间，但是后续的编译会更快。
 
-If all went well, you should be left with a message like this:
+如果一切顺利，你应该会看到类似这样的消息。:
 ```log
 ╰─ cargo build --release
    Compiling hello-pumpkin v0.1.0 (/home/vypal/Dokumenty/GitHub/hello-pumpkin)
     Finished `release` profile [optimized] target(s) in 0.68s
 ```
 
-Now you can go to the `./target/release` folder (or `./target/debug` if you didn't use `--release`) and locate your plugin binary
+现在你可以前往`./target/release`文件夹（或者如果你没有使用`--release`，则是`./target/debug`，找到你的插件二进制文件。
 
-Depending on your operating system, the file will have one of three possible names:
-- For Windows: `hello-pumpkin.dll`
-- For MacOS: `libhello-pumpkin.dylib`
-- For Linux: `libhello-pumpkin.so`
+根据你的操作系统，文件将有以下三个可能的名称之一：
+- Windows: `hello-pumpkin.dll`
+- MacOS: `libhello-pumpkin.dylib`
+- Linux: `libhello-pumpkin.so`
 
 ::: info NOTE
-If you used a different project name in the `Cargo.toml` file, look for a file which contains your project name
+如果你在`Cargo.toml`文件中使用了不同的项目名称，请查找包含你的项目名称的文件。
 :::
 
 You can rename this file to whatever you like, however you must keep the file extension (`.dll`, `.dylib`, or `.so`) the same.
