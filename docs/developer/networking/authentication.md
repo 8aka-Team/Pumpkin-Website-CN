@@ -2,27 +2,27 @@
 
 ### 为什么需要认证
 
-Minecraft是最受欢迎的游戏之一，而且很容易在不付费的情况下玩到。实际上，你支付的并不是游戏本身，而是Minecraft账户。
-那些没有购买游戏却在线上玩的人，使用的是[离线账户](#cracked-accounts)。
+Minecraft 是最受欢迎的游戏之一，而且很容易在不付费的情况下玩到。实际上，你支付的并不是游戏本身，而是 Minecraft 账户。
+那些没有购买游戏却在线上玩的人，使用的是 [离线账户](#cracked-accounts)。
 
 #### 离线账户
 
 - 不需要花费任何金钱。
 - 每个人都可以设置自己的昵称且不需要考虑冲突。
-- 没有唯一的UUID。
+- 没有固定且唯一的 UUID。
 - 没有皮肤/披风。
 - 不安全。
 
 问题在于每个人都可以随意给自己命名，这使得他们可以以管理员的身份加入服务器。
-离线账户也经常被用于机器人操作和DDOS服务攻击。
+离线账户也经常被用于机器人操作和 DDOS 服务攻击。
 
 ### 离线服务器
 
 默认情况下，配置中的`online_mode`是启用的。
-这启用了身份验证，禁用了[离线账户](#cracked-accounts)。
+这启用了身份验证，禁用了 [离线账户](#cracked-accounts)。
 如果您想要允许使用离线账户，您可以在`configuration.toml`中禁用`online_mode`。
 
-### Mojang身份验证如何工作
+### Mojang 身份验证如何工作
 
 为了确保玩家拥有高级权限的账户：
 
@@ -36,11 +36,11 @@ Minecraft是最受欢迎的游戏之一，而且很容易在不付费的情况�
 
 Pumpkin确实支持自定义认证服务器。您可以在`features.toml`中替换认证URL。
 
-#### Pumpkin身份验证如何工作
+#### Pumpkin 身份验证如何工作
 
-1. **GET请求:** Pumpkin向指定的认证URL发送GET请求。
+1. **GET 请求:** Pumpkin 向指定的认证 UR L发送 GET 请求。
 2. **状态码200:** 如果认证成功，服务器会以状态码200响应。
-3. **解析JSON游戏档案:** Pumpkin解析响应中返回的JSON游戏档案。
+3. **解析 JSON 游戏档案:** Pumpkin 解析响应中返回的JSON游戏档案。
 
 #### 游戏档案
 
@@ -58,8 +58,8 @@ struct GameProfile {
 ```rust
 struct Property {
     name: String,
-    value: String, // Base64编码
-    signature: Option<String>, // 可选的，Base64编码
+    value: String, // Base64 编码
+    signature: Option<String>, // 可选的，Base64 编码
 }
 ```
 

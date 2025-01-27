@@ -2,15 +2,14 @@
 
 代表 `configuration.toml`
 
-## 服务器地址
+## 服务端地址
 
-设置服务器绑定的地址。
-（绑定后只允许来自该IP的玩家进入服务器）
+设置服务端绑定的地址。
+（绑定后只允许来自该IP的玩家进入服务端）
 
 :::code-group
 ```toml [configuration.toml] {2}
 server_address = "0.0.0.0:25565"
-- 对应Vanilla的server-ip=
 ```
 :::
 
@@ -26,12 +25,11 @@ seed = ""
 
 ## 最大玩家数
 
-设置服务器允许的最大玩家数量。
+设置服务端允许的最大玩家数量。
 
 :::code-group
 ```toml [configuration.toml] {2}
 max_players = 100000
-- 对应Vanilla的max-players=
 ```
 :::
 
@@ -42,7 +40,6 @@ max_players = 100000
 :::code-group
 ```toml [configuration.toml] {2}
 view_distance = 10
-- 对应Vanilla的view-distance=
 ```
 :::
 
@@ -53,7 +50,6 @@ view_distance = 10
 :::code-group
 ```toml [configuration.toml] {2}
 simulation_distance = 10
-- 对应Vanilla的simulation-distance=
 ```
 :::
 
@@ -64,7 +60,6 @@ simulation_distance = 10
 :::code-group
 ```toml [configuration.toml] {2}
 default_difficulty = "Normal"
-- 对应Vanilla的difficulty=
 ```
 :::
 
@@ -98,7 +93,7 @@ allow_nether = true
 
 ## 极限模式
 
-是否启用服务器的极限模式。
+是否启用服务端的极限模式。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -131,17 +126,17 @@ encryption = true
 
 ## 服务器描述
 
-设置在服务器列表上显示的服务器描述。
+设置在服务器列表上显示的服务端描述。
 
 :::code-group
 ```toml [configuration.toml] {2}
-motd = "A Blazing fast Pumpkin Server!"
+motd = "一款超快速的南瓜服务端！"
 ```
 :::
 
 ## TPS
 
-设置服务器的目标Tick速率。
+设置服务端的目标 Tick 速率。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -179,7 +174,7 @@ scrub_ips = true
 
 ## 使用图标
 
-是否使用服务器图标。
+是否使用服务端图标。
 
 :::code-group
 ```toml [configuration.toml] {2}
@@ -189,7 +184,7 @@ use_favicon = true
 
 ## 图标路径
 
-设置服务器图标的路径。
+设置服务端图标的路径。
 
 :::code-group
 ```toml [configuration.toml] {2}

@@ -1,5 +1,5 @@
 # 资源包
-服务器可以向客户端发送资源包，以更改客户端上游戏的外观。Pumpkin 允许您完全配置资源包。
+服务端可以向客户端发送资源包，以更改客户端上游戏的外观。Pumpkin 允许您完全配置资源包。
 
 > [!TIP]
 > 使用 [PackSquash](https://packsquash.aylas.org/) 压缩您的资源包！这可以帮助客户端更快地下载资源包。
@@ -26,7 +26,7 @@ enabled = true
 ```toml [features.toml] {3}
 [resource_pack]
 enabled = true
-resource_pack_url = "[your download URL here]"
+resource_pack_url = "[资源包的下载链接]"
 ```
 :::
 
@@ -34,7 +34,7 @@ resource_pack_url = "[your download URL here]"
 设置资源包的哈希值，使用 SHA1 算法。
 
 > [!IMPORTANT]
-> 虽然不需要指定此字段，但您应该指定此字段，因为否则客户端每次加入服务器时都会重新下载资源包，即使资源包没有更改。
+> 虽然不需要指定此字段，但您应该指定此字段，否则客户端每次加入服务器时都会重新下载资源包，即使资源包没有更改。
 
 > [!WARNING]
 > 如果资源包被修改，请确保更新此字段。
@@ -42,13 +42,13 @@ resource_pack_url = "[your download URL here]"
 ::: details 如何获取资源包的 SHA1 哈希值？
 ::: code-group
 ```powershell [Windows (PowerShell)]
-Get-FileHash [file] SHA1
+Get-FileHash [文件] SHA1
 ```
 ```shell [Mac OS]
-shasum -a 1 [file]
+shasum -a 1 [文件]
 ```
 ```shell [Linux]
-sha1sum [file]
+sha1sum [文件]
 ```
 :::
 
@@ -56,7 +56,7 @@ sha1sum [file]
 ```toml [features.toml] {3}
 [resource_pack]
 enabled = true
-resource_pack_sha1 = "[your hash here]"
+resource_pack_sha1 = "[用于验证的哈希值]"
 ```
 :::
 
@@ -67,7 +67,7 @@ resource_pack_sha1 = "[your hash here]"
 ```toml [features.toml] {3}
 [resource_pack]
 enabled = true
-prompt_message = "[your message here]"
+prompt_message = "[客户端显示的消息]"
 ```
 :::
 

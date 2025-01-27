@@ -1,6 +1,6 @@
 ### 网络
 
-Pumpkin中的大多数网络代码可以在[Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol)找到。
+Pumpkin 中的大多数网络代码可以在 [Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol)找到。
 
 服务端: 客户端→服务器
 
@@ -8,7 +8,7 @@ Pumpkin中的大多数网络代码可以在[Pumpkin-Protocol](https://github.com
 
 ### 结构
 
-Pumpkin协议中的数据包是根据功能和状态组织的。
+Pumpkin 协议中的数据包是根据功能和状态组织的。
 
 `server`: 包含服务端数据包的定义。
 
@@ -28,12 +28,12 @@ Pumpkin协议中的数据包是根据功能和状态组织的。
 
 ### Minecraft协议
 
-您可以在 [Minecraft Wiki的Protocol](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol) 页面找到所有Minecraft Java数据包。在那里，您也可以看到它们属于哪个状态。
+您可以在 [Minecraft Wiki的Protocol](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol) 页面找到所有 Minecraft Java 数据包。在那里，您也可以看到它们属于哪个状态。
 您还可以看到数据包拥有的所有信息，这些信息我们可以根据它们是服务器端还是客户端数据包来写入或读取。
 
 ### 添加客户端数据包
 
-1. 添加数据包很容易。首先，您必须为数据包派生出serde Serialize。
+1. 添加数据包很容易。首先，您必须为数据包派生出 serde Serialize。
 
 ```rust
 #[derive(Serialize)]
@@ -191,7 +191,7 @@ Pumpkin将客户端和玩家分开存储。不在游戏状态中的一切都是�
 示例:
 
 ```rust
-// 仅在Status状态下工作
+// 仅在 Status 状态下工作
 client.send_packet(&CStatusResponse::new("{ description: "A Description"}"));
 ```
 
@@ -259,10 +259,10 @@ client.send_packet(&CStatusResponse::new("{ description: "A Description"}"));
 
 ### 压缩
 
-Minecraft数据包 **可以** 使用ZLib压缩进行解码/编码。通常在应用压缩时会设置一个阈值，这会影响区块数据包。
+Minecraft 数据包 **可以** 使用ZLib压缩进行解码/编码。通常在应用压缩时会设置一个阈值，这会影响区块数据包。
 
 ### 移植
 
-要移植到新的Minecraft版本，您可以在以下网址比较协议的差异 [Minecraft Wiki上的wiki.vg_merge](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol?action=history)
+要移植到新的 Minecraft 版本，您可以在 [Minecraft Wiki上的wiki.vg_merge](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Protocol?action=history) 比较协议的差异
 
 同时更改`src/lib.rs`中的`CURRENT_MC_PROTOCOL`

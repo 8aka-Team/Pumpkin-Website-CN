@@ -30,11 +30,11 @@ features:
     details: Pumpkin 100% 用Rust编写，确保内存安全和无与伦比的性能。
   - icon: 📋
     title: 功能完整
-    details: 支持所有原生功能(包括红石特性)，您将不会有任何适应问题。
+    details: 支持所有原生功能(包括红石特性)，直接无感迁移。
   - icon: ⚙️
     title: 高度DIY
     details: 高度自定义，能够禁用不需要的功能。
-  - icon: ⚙️
+  - icon: ✨
     title: 超强扩展
     details: 预计集成extism框架，支持多达十几种语言扩展。
 ---

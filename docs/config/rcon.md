@@ -1,5 +1,5 @@
 # RCON
-RCON 是一种协议，允许您从不同的设备远程管理服务器。Pumpkin 完全支持 RCON。
+RCON 是一种协议，允许您从不同的设备远程管理服务端。Pumpkin 完全支持 RCON。
 
 ## 配置 RCON
 
@@ -13,7 +13,7 @@ enabled = true
 :::
 
 #### `address`: 字符串
-设置RCON 应监听的地址和端口。
+设置 RCON 应监听的地址和端口。
 
 :::code-group
 ```toml [features.toml] {3}

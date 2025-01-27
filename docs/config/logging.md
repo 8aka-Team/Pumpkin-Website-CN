@@ -75,13 +75,13 @@ timestamp = false
 :::
 
 ## 默认配置
-默认情况下，日志记录是启用的，并且会在 `信息` 级别打印带有颜色、线程信息和时间戳的日志。
+默认情况下，日志记录是启用的，并且会在 `Info` 级别打印带有颜色、线程信息和时间戳的日志。
 
 :::code-group
 ```toml [features.toml]
 [logging]
 enabled = true
-level = "信息"
+level = "Info"
 env = false
 threads = true
 color = true

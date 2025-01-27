@@ -1,11 +1,11 @@
 # 认证
 
-服务器与Mojang的会话服务器进行身份验证，以确保客户端在合法的付费帐户上玩游戏。Pumpkin允许您完全配置身份验证以支持第三方认证服务器。
+服务器与 Mojang 的会话服务器进行身份验证，以确保客户端在合法的付费帐户上玩游戏。Pumpkin允许您完全配置身份验证以支持第三方认证服务器。
 
 ## 配置认证
 
-> [!警告]
-> 大多数服务器不应更改默认的认证配置。这样做可能会产生意想不到的后果。**只有在您知道自己在做什么的情况下才更改这些设置！**
+> [!WARNING]
+> 大多数服务端不应更改默认的认证配置。这样做可能会产生意想不到的后果。**只有在您知道自己在做什么的情况下才更改这些设置！**
 
 #### `enabled`: 布尔值
 
@@ -16,7 +16,6 @@
 ```toml [features.toml] {2}
 [authentication]
 enabled = false
-- 对应Vanilla的online-mode=
 ```
 
 :::
@@ -31,21 +30,20 @@ enabled = false
 [authentication]
 enabled = true
 prevent_proxy_connections = true
-- 对应Vanilla的prevent-proxy-connections=
 ```
 
 :::
 
 #### `auth_url`: 字符串（可选）
 
-用于认证的URL。如果未指定，则使用Mojang的会话服务器进行认证。
+设置用于认证的会话服务器URL。如果未指定，则使用Mojang的会话服务器进行认证。
 
 ##### 占位符
 
 | 占位符             | 描述      |
 |-----------------|---------|
-| `{username}`    | 玩家用户名   |
-| `{server_hash}` | 服务器的哈希值 |
+| `{username}`    | 用户名   |
+| `{server_hash}` | 哈希值 |
 
 :::code-group
 
@@ -58,15 +56,15 @@ auth_url = "[自定义认证服务器地址]"
 
 #### `prevent_proxy_connection_auth_url`: 字符串（可选）
 
-如果启用了`prevent_proxy_connections`，则用于认证的URL。如果未指定，则使用Mojang的会话服务器进行认证。
+如果启用了`prevent_proxy_connections`，则用于会话服务器URL。如果未指定，则使用Mojang的会话服务器进行认证。
 
 ##### 占位符
 
 | 占位符             | 描述      |
 |-----------------|---------|
-| `{username}`    | 玩家用户名   |
-| `{server_hash}` | 服务器的哈希值 |
-| `{ip}`          | 玩家的IP地址 |
+| `{username}`    | 用户名   |
+| `{server_hash}` | 哈希值 |
+| `{ip}`          | IP地址 |
 
 :::code-group
 
@@ -192,7 +190,7 @@ elytra = true
 
 ## 默认配置
 
-默认情况下，认证已启用并使用Mojang的服务器。以下是默认配置：
+默认情况下，认证已启用并使用 Mojang 的服务器。以下是默认配置：
 :::code-group
 
 ```toml [features.toml]

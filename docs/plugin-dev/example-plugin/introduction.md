@@ -1,9 +1,9 @@
-# Writing an Example Plugin
-This tutorial will guide you through creating a new plugin.
+# 编写一个示例插件
+本教程将指导你创建一个新的插件。
 
-This tutorial expects that you have some experience with rust and with using a command line.
+本教程假定你对 Rust 有一定的了解，并熟悉命令行的使用。
 
-Topics described in this tutorial:
-- Modifying the join message
-- Creating a rock-paper-scissors command (coming soon)
-- Saving plugin data in the plugin's directory (coming soon)
+本教程涵盖的主题：
+- 修改加入消息
+- 创建一个石头剪刀布命令（即将推出）
+- 在插件目录中保存插件数据（即将推出）

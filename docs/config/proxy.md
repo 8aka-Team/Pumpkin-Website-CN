@@ -5,7 +5,7 @@
 - [BungeeCord](https://www.spigotmc.org/wiki/bungeecord-installation/)
 
 > [!TIP]
-> 对于大多数服务器网络，推荐使用 Velocity。Velocity 更现代化且性能优于 BungeeCord。
+> 对于大多数服务端，推荐使用 Velocity。Velocity 更现代化且性能优于 BungeeCord。
 
 ## 配置代理
 

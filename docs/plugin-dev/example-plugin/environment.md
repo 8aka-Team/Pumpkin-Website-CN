@@ -1,5 +1,8 @@
-# Setting up a development environment
-## Installing rust
-To build a plugin for pumpkin, you will need to have the rust toolchain installed on your system. We recommend you follow the [official installation instructions](https://www.rust-lang.org/tools/install) for this.
-## Building Pumpkin
-To be able to test the plugin during development, you will need a build of the Pumpkin server software to run the plugins. You can follow the [quickstart guide](/about/quick-start) if you don't yet have a build.
+# 设置开发环境
+## 安装 Rust
+
+要为南瓜构建插件，你需要在系统上安装 Rust 工具链。我们建议你按照官方 [安装指南](https://www.rust-lang.org/tools/install) 进行操作。
+
+## 构建 Pumpkin
+
+为了在开发过程中测试插件，你需要一个南瓜服务端的构建版本来运行插件。如果你还没有构建版本，可以按照 [快速入门指南](/about/quick-start) 进行操作。

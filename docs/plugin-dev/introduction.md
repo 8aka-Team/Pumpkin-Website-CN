@@ -13,7 +13,7 @@ Pumpkin插件与服务端深度集成，允许实现许多在其他服务端上�
 使用 WebAssembly 构建的跨语言框架支持如下语言开发：
 
 ```
-解释语言：JavaScript，Ruby，Python，PHP
+解释语言：JavaScript/TypeScript，Ruby，Python，PHP
 
 编译语言：Go，C#，Java，Elixir，C/C++，OCaml，Zig，Haskell，D
 ```

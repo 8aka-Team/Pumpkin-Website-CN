@@ -29,20 +29,20 @@ cargo run --release
 
 ## Docker
 
-实验性的Docker支持可用。
+实验性的Docker支持。
 该镜像目前尚未发布在任何地方，但您可以使用以下命令构建并部署它：
 
 ```shell
 docker compose up --build
 ```
 
-运行此命令后，应该会出现一个`data/`文件夹，您可以在其中找到所有服务器文件。
-在此`data/`文件夹中，您可以放入您的`world/`文件夹（确保重新启动服务器）。
+运行此命令后，应该会出现一个`data/`文件夹，您可以在其中找到所有服务端文件。
+在此`data/`文件夹中，您可以放入您的`world/`文件夹（确保重新启动服务端）。
 
-## 测试服务器
-Pumpkin有一个由@kralverde维护的测试服务器。它运行在Pumpkin的最新的commits上。
+## 测试服务端
+Pumpkin有一个由 [kralverde](https://github.com/kralverde) 维护的测试服务端。它运行在Pumpkin的最新的commits上。
 
-PS:每晚不定期更新最新版本，进入服务器后将自动获得OP权限
+PS:每晚不定期更新最新版本，进入服务端后将自动获得OP权限
 
 - **IP:** pumpkin.kralverde.dev
 
