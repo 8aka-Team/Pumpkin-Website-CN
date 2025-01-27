@@ -1,22 +1,21 @@
-# Creating a new project
-Pumpkin Plugins use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build system.
+# 创建一个新项目
+Pumpkin 插件使用 [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) 构建系统。
 
-The complete code for this plugin can be found as a [template on GitHub](https://github.com/vyPal/Hello-Pumpkin).
-
-## Initializing a new crate
-First we need to create a new project folder,you can do this by running this command in the folder you created:
+这个插件的完整代码可以在 [插件模板](https://github.com/vyPal/Hello-Pumpkin) 中找到。
+## 初始化一个新的 crate 
+首先我们需要创建一个新的项目文件夹，你可以在你创建的文件夹中运行以下命令：
 ```bash
-cargo new <project-name> --lib
+cargo new <项目名称> --lib
 ```
-This will create a folder with a couple files in it. The folder structure should look like this:
+这将创建一个包含几个文件的文件夹。文件夹结构应该如下所示：
 ```
 ├── Cargo.toml
 └── src
     └── lib.rs
 ```
 
-## Configuring the crate
-Since Pumpkin Plugins are loaded at runtime as dynamic libraries, we need to tell Cargo to build this crate as one. Open the `Cargo.toml` file and add these lines:
+## 配置 crate
+由于 Pumpkin 插件是在运行时作为动态库加载的，我们需要告诉 Cargo 将这个 crate 构建为一个动态库。打开 `Cargo.toml` 文件并添加以下几行：
 ```toml
 [package]
 name = "hello-pumpkin"
@@ -29,7 +28,7 @@ crate-type = ["cdylib"]
 [dependencies]
 ```
 
-Next we need to add some basic dependencies. Since Pumpkin is still in early development, the internal crates aren't published to crates.io, so we need to tell Cargo to download the dependencies directly from GitHub. Add this to `Crago.toml`:
+接下来我们需要添加一些基本的依赖项。由于 Pumpkin 仍在早期开发中，内部 crate 尚未发布到 crates.io，因此我们需要告诉 Cargo 直接从 GitHub 下载依赖项。将以下内容添加到 `Crago.toml`中：
 ```toml
 [package]
 name = "hello-pumpkin"
@@ -51,13 +50,13 @@ env_logger = "0.11.6"
 log = "0.4.22"
 ```
 
-This adds three dependencies from Pumpkin:
-- `pumpkin` - This is the base crate with most high-level type definitions
-- `pumpkin-util` - Other utilities used by Pumpkin (like TextComponent)
-- `pumpkin-api-macros` - Macros for easier plugin development
+这从 Pumpkin 添加了三个依赖项：
+- `pumpkin` - 这是包含大多数高级类型定义的基础 crate
+- `pumpkin-util` - Pumpkin 使用的其他工具（如 TextComponent）
+- `pumpkin-api-macros` - 用于简化插件开发的宏
 
-as well as these other dependencies:
-- `async-trait` - A utility allowing plugins to work asynchronously
-- `tokio` - A rust asynchronous runtime
-- `log` - For logging
-- `env_logger` - Configure logger using environment variables
+以及这些其他依赖项：
+- `async-trait` - 一个允许插件异步工作的工具
+- `tokio` - 一个 Rust 异步运行时
+- `log` - 用于日志记录
+- `env_logger` - 使用环境变量配置日志记录器

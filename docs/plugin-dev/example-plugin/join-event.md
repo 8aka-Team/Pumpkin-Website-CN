@@ -1,14 +1,12 @@
-# Writing a Event Handler
-Event handlers are one of the main functions of plugins, they allow a plugin to tap into the internal workings of the server, and alter it's behavior to perform some other action. For a simple example, we will implement a handler for the `player_join` event. 
-
-The Pumpkin Plugin Event System tries to copy the Bukkit/Spigot Event system, so that developers coming from there will have a easier time learning Pumpkin.
-
-The Event System also uses inheritance to make it easy to expect the data that you will get from an event.
-## Join Event
-To further explain the inheritance system, let's demonstrate it on the Player Join event:
+# 编写一个事件处理器
+主要功能之一，它们允许插件接入服务端的内部工作，并改变其行为以执行其他操作。以一个简单的例子来说，我们将实现一个处理 `player_join` 事件的处理器。
+Pumpkin 插件事件系统试图复制 Bukkit/Spigot 事件系统，以便来自那里的开发者更容易学习 Pumpkin。
+事件系统还使用继承，以便于从事件中获得预期的数据。
+## 加入事件
+为了进一步解释继承系统，让我们以玩家加入事件为例来说明：
 ```
 Event
-├── get_name() 
+├── get_name()
 │
 ├── CancellableEvent
 │   ├── is_cancelled()
@@ -21,35 +19,33 @@ Event
 │           ├── get_join_message()
 │           └── set_join_message() 
 ```
-As you can see, the `PlayerJoinEvent` exposes two methods. But since it inherits the `PlayerEvent` type, it will also expose the `get_player()` method. This continues up the tree structure, so in the end, all the methods you see here will be available on the `PlayerJoinEvent`
+如你所见，`PlayerJoinEvent` 公开了两个方法。但由于它继承了 `PlayerEvent` 类型，它也会公开 `get_player()` 方法。这种继承关系会继续向上追溯，因此最终，你在这里看到的所有方法都将在 `PlayerJoinEvent` 上可用。
+## 实现加入事件
+单独的事件处理器只是实现了 `EventHandler<T>` trait（其中T是特定事件的实现）的结构体。
 
-## Implementing the Join Event
-Individual event handlers are just structs which implement the `EventHandler<T>` trait (where T is a specific event implementation).
-
-### What are blocking events?
-The Pumpkin Plugin Event System differentiates between two types of evetns: blocking and non-blocking. Each have their benefits:
-#### Blocking events
+### 什么是阻塞事件？
+Pumpkin 插件事件系统区分了两种类型的事件：阻塞（blocking）和非阻塞（non-blocking）。每种类型都有其优势：
+#### 阻塞事件
 ```diff
-+ Can modify the event (like editing the join message)
-+ Can cancel the event
-+ Have a priority system
-- Are executed in sequence
-- Can slow down the server if not implemented well
++ 可以修改事件（例如编辑加入消息）
++ 可以取消事件
++ 有一个优先级系统
+- 按顺序执行
+- 如果实现不当，可能会减慢服务端的运行速度
 ```
-#### Non-blocking events
+#### 非阻塞事件
 ```diff
-+ Are executed in parallel
-+ Are executed after all blocking events finish
-+ Can still do some modifications (anything that is behin a Mutex or RwLock)
-- Can not cancel the event
-- No priority system
-- Allow for less control over the event
++ 使用并行执行
++ 在所有阻塞事件完成后执行
++ 仍然可以进行一些修改（任何在 Mutex 或 RwLock 后面的内容）
+- 不能取消事件
+- 没有优先级系统
+- 对事件的控制较少
 ```
 
-### Writing a handler
-Since our main aim here is to change the welcome message that the player sees when they join a server, we will be choosing the blocking event type with a low priority.
-
-Add this code above the `on_load` method:
+### 编写一个处理器
+由于我们的主要目标是改变玩家加入服务器时看到的欢迎消息，我们将选择低优先级的阻塞事件类型。
+将此代码添加到 `on_load` 方法上方：
 ```rs
 use async_trait::async_trait; // [!code ++:4]
 use pumpkin_api_macros::{plugin_impl, plugin_method, with_runtime};
@@ -72,18 +68,17 @@ impl EventHandler<PlayerJoinEventImpl> for MyJoinHandler {
 }
 ```
 
-**Explanation**:
-- `struct MyJoinHandler;`: The struct for our event handler
-- `#[with_runtime(global)]`: Pumpkin uses the tokio async runtime, which acts in wierd ways across the plugin boundary. Even though it is not necessary in this specific example, it is a good practise to wrap all async `impl`s that interact with async code with this macro.
-- `#[async_trait]`: Rust doesn't have native support for traits with async methods. So we use the `async_trait` crate to allow this.
-- `async fn handle_blocking()`: Since we chose for this event to be blocking, it is necessary to implement the `handle_blocking()` method instead of the `handle()` method.
-
+**解释**:
+- `struct MyJoinHandler;`: 我们事件处理器的结构体
+- `#[with_runtime(global)]`: Pumpkin 使用了 tokio 异步运行时，它在插件边界处的行为可能会有些奇怪。尽管在本例中并非必要，但将所有与异步代码交互的异步 `impl` 用这个宏包裹起来是一个好习惯。
+- `#[async_trait]`: Rust 没有对异步方法的特质的原生支持。因此，我们使用 `async_trait` crate 来允许这一点。
+- `async fn handle_blocking()`: 由于我们选择这个事件是阻塞的，因此有必要实现 `handle_blocking()` 方法而不是 `handle()`方法。
 ::: warning IMPORTANT
 It is important that the `#[with_runtime(global)]` macro is **above** the **`#[async_trait]`** macro. If they are in the opposite order, the `#[with_runtime(global)]` macro might not work
 :::
 
-### Registering the handler
-Now that we have written the event handler, we need to tell the plugin to use it. We can do that by adding a single line to the `on_load` method:
+### 注册处理器
+现在我们已经编写了事件处理器，我们需要告诉插件使用它。我们可以通过在 `on_load` 方法中添加一行代码来实现这一点：
 ```rs
 use pumpkin::plugin::{player::{join::PlayerJoinEventImpl, PlayerEvent, PlayerJoinEvent}, Context, EventHandler, EventPriority}; // [!code ++]
 use pumpkin::plugin::{player::{join::PlayerJoinEventImpl, PlayerEvent, PlayerJoinEvent}, Context, EventHandler}; // [!code --]
@@ -99,4 +94,4 @@ async fn on_load(&mut self, server: &Context) -> Result<(), String> {
     Ok(())
 }
 ```
-Now if we build the plugin and join the server, we should see a green "Welcome !" message with our username!
+现在我们构建插件并加入服务端，我们应该会看到一条带有我们用户名的绿色的 "Welcome !"消息！
