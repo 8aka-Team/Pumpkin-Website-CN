@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
     title: "Pumpkin",
     description:
-        "一个使用Rust编写的高性能，多线程的Minecraft服务端核心",
+        "一个使用 Rust 编写的高性能，多线程的 Minecraft 服务端核心",
     lang: "zh-CN",
     sitemap: {
         hostname: 'https://pumpkin.8aka.org'
@@ -16,32 +16,32 @@ export default defineConfig({
         },
         nav: [
             {
-                text: "文档",
+                text: "Pumpkin 文档",
                 link: "/about/introduction",
             },
         ],
         sidebar: [
             {
-                text: "关于",
+                text: "关于我们",
                 items: [
-                    { text: "介绍", link: "/about/introduction" },
+                    { text: "基本介绍", link: "/about/introduction" },
                     { text: "快速开始", link: "/about/quick-start" },
                     { text: "基准测试", link: "/about/benchmarks" },
                 ],
             },
             {
-                text: "配置",
+                text: "配置说明",
                 items: [
-                    { text: "介绍", link: "/config/introduction" },
-                    { text: "基础", link: "/config/basic" },
-                    { text: "代理", link: "/config/proxy" },
-                    { text: "认证", link: "/config/authentication" },
-                    { text: "压缩", link: "/config/compression" },
+                    { text: "配置介绍", link: "/config/introduction" },
+                    { text: "基础功能", link: "/config/basic" },
+                    { text: "群组代理", link: "/config/proxy" },
+                    { text: "身份验证", link: "/config/authentication" },
+                    { text: "数据压缩", link: "/config/compression" },
                     { text: "资源包", link: "/config/resource-pack" },
-                    { text: "命令", link: "/config/commands" },
+                    { text: "操作命令", link: "/config/commands" },
                     { text: "RCON", link: "/config/rcon" },
                     { text: "PVP", link: "/config/pvp" },
-                    { text: "日志", link: "/config/logging" },
+                    { text: "日志记录", link: "/config/logging" },
                     { text: "Query", link: "/config/query" },
                     { text: "局域网广播", link: "/config/lan-broadcast" },
                 ],
@@ -49,24 +49,24 @@ export default defineConfig({
             {
                 text: "开发者",
                 items: [
-                    { text: "贡献", link: "/developer/contributing" },
-                    { text: "介绍", link: "/developer/introduction" },
+                    { text: "做出贡献", link: "/developer/contributing" },
+                    { text: "基本介绍", link: "/developer/introduction" },
                     {
-                        text: "网络",
+                        text: "网络协议",
                         link: "/developer/networking/networking",
                         items: [
                             { text: "身份验证", link: "/developer/networking/authentication" },
                             { text: "RCON", link: "/developer/networking/rcon" },
                         ]
                     },
-                    { text: "世界", link: "developer/world" },
+                    { text: "世界格式", link: "developer/world" },
                 ],
             },
             {
                 text: "插件文档",
                 items: [
                     {
-                        text: "介绍",
+                        text: "基本介绍",
                         link: "/plugin-dev/introduction",
                     },
                     {
@@ -105,8 +105,8 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            { icon: "github", link: "https://github.com/Pumpkin-MC/Pumpkin" },
-            { icon: "discord", link: "https://discord.gg/RNm224ZsDq" },
+            { icon: "Github", link: "https://github.com/Pumpkin-MC/Pumpkin" },
+            { icon: "Discord", link: "https://discord.gg/RNm224ZsDq" },
         ],
 
         logo: "/assets/favicon.ico",

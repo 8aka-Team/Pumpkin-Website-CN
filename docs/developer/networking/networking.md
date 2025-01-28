@@ -1,4 +1,4 @@
-### 网络
+### 网络协议
 
 Pumpkin 中的大多数网络代码可以在 [Pumpkin-Protocol](https://github.com/Pumpkin-MC/Pumpkin/tree/master/pumpkin-protocol) 找到。
 
