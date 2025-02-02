@@ -6,12 +6,14 @@ import './style.css'
 import FmtNum from '../components/FmtNum.vue'
 import FmtDateTime from '../components/FmtDateTime.vue'
 import {inBrowser} from 'vitepress'
+import AdBanner from '../components/AdBanner.vue'
 
 export default {
     extends: DefaultTheme,
     Layout: () => {
         return h(DefaultTheme.Layout, null, {
-            // https://vitepress.dev/guide/extending-default-theme#layout-slots
+            // 在导航栏右侧插入广告
+            'nav-bar-content-after': () => h(AdBanner)
         })
     },
     enhanceApp({app, router, siteData}) {

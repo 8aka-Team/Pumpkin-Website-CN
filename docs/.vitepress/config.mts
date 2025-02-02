@@ -108,12 +108,6 @@ export default defineConfig({
                 ],
             },
         ],
-
-        socialLinks: [
-            {icon: "Github", link: "https://github.com/Pumpkin-MC/Pumpkin"},
-            {icon: "Discord", link: "https://discord.gg/RNm224ZsDq"},
-        ],
-
         logo: "/assets/favicon.ico",
         footer: {
             message: "Released under the MIT License.",
@@ -139,17 +133,17 @@ export default defineConfig({
         ["link", {rel: "icon", type: "image/svg+xml", href: "/assets/favicon.svg"}],
         ["link", {rel: "apple-touch-icon", href: "/assets/apple-touch-icon.png", sizes: "180x180"}],
         ["link", {rel: "manifest", href: "/assets/site.webmanifest"}],
+        ['style', {}, `
+        .VPNavBar.has-sidebar .content {
+             position: relative;
+        }
+        .VPNavBar .content-body {
+            display: flex;
+            align-items: center;
+        }
+        `],
+        ["link", {rel: "canonical", href: "https://pumpkin.8aka.org/"}],
 
-        ["link", {rel: "canonical", href: "https://pumpkinmc.org/"}],
-
-        ["meta", { name: "apple-mobile-web-app-title", content: "Pumpkin" }],
-
-        ["script", { async: '', src: "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" }],
-        ['script', {}, `window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-QK7NXQQ2ZP');`]
-
+        ["meta", {name: "apple-mobile-web-app-title", content: "Pumpkin"}],
     ],
 });
