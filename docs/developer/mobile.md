@@ -10,8 +10,8 @@
 
 在此之后，你需要运行一些命令。我们使用 Helix 是因为它简单易用。.
 ```bash
-  pkg update && pkg upgrade //更新软件源
-  pkg install build-essential git rust rust-analyzer taplo helix helix-grammar nodejs //安装特定的软件包
+  pkg update && pkg upgrade
+  pkg install build-essential git rust rust-analyzer taplo helix helix-grammar nodejs
 ```
 
 如果你想做出贡献，你需要安装 GitHub。
