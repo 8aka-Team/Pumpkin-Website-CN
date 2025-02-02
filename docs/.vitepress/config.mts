@@ -64,6 +64,7 @@ export default defineConfig({
                         ]
                     },
                     {text: "世界格式", link: "developer/world"},
+                    {text: "移动开发", link: "developer/mobile"},
                 ],
             },
             {
