@@ -6,9 +6,12 @@ import './style.css'
 import FmtNum from '../components/FmtNum.vue'
 import FmtDateTime from '../components/FmtDateTime.vue'
 import {inBrowser} from 'vitepress'
-
+import { useAd } from './ad'
 export default {
     extends: DefaultTheme,
+    setup() {
+        useAd()
+    },
     Layout: () => {
         return h(DefaultTheme.Layout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
