@@ -1,4 +1,1 @@
-
-
-
-## [查看网站](https://pumpkin.8aka.org)
+# [查看网站](https://pumpkin.8aka.org)
